@@ -20,11 +20,15 @@ return new class extends Migration
             $table->string('direccion');
             $table->integer('rol');
             $table->date('fechaNac');
+            $table->string('password');
+            //$table->unsignedBigInteger('idRol');  //El nombre de una fk tiene un nombre en concreto.
+            //$table->foreign('idRol')->references('id')->on('rol');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('imagen');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

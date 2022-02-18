@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('playlist', function (Blueprint $table) {
+        Schema::create('entrada', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->float('precio');
             $table->text('descripcion');
-            $table->unsignedBigInteger('user_id');  //El nombre de una fk tiene un nombre en concreto.
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('idFestival');  //El nombre de una fk tiene un nombre en concreto.
+            $table->foreign('idFestival')->references('id')->on('festival');
+            $table->unsignedBigInteger('idUser');  //El nombre de una fk tiene un nombre en concreto.
+            $table->foreign('idUser')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('playlist');
+        Schema::dropIfExists('entrada');
     }
 };

@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('artista', function (Blueprint $table) {
+        Schema::create('rol', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->year('anio');
-            $table->boolean('retirados');
-            $table->boolean('esGrupo');
-            $table->string('foto');
+            $table->string('descripcion');
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('rol');
     }
 };

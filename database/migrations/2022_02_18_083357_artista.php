@@ -13,15 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cancion', function (Blueprint $table) {
+        Schema::create('artista', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->float('duracion');
-            $table->text('letra');
-            $table->string('compositor');
-            $table->unsignedBigInteger('album_id');  //El nombre de una fk tiene un nombre en concreto.
-            $table->foreign('album_id')->references('id')->on('album');
+            $table->year('anio');
+            $table->boolean('esGrupo');
+            $table->string('foto');
+            $table->string('estilo');
+            $table->unsignedBigInteger('idFestival');
+            $table->foreign('idFestival')->references('id')->on('festival');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cancion');
+        //
     }
 };
