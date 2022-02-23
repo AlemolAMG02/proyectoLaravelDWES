@@ -1,21 +1,48 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Menú Principal') }}
-        </h2>
-    </x-slot>
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                   <p> esto es la vista principal </p>
+                   <p class="bg-gray-100"> esto es la vista principal </p>
 
-                    <div>
-                        <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
+                    <div id="boxCartas" class="grid grid-cols-3 content-center pt-3">
+
+                        <div class="max-w-sm rounded overflow-hidden px-1 py-1 bg-blue-200">
+                            <img class="w-full" src="storage/festivalPhotos/festival2.jpg" alt="Imagen de festivales">
                             <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+                                <h2 class="font-bold text-xl mb-2">Festivales</h2>
+                                <p class="text-gray-700 text-base">
+                                    Muestra la lista de festivales para que eligas tu favorito.
+                                </p>
+                            </div>
+                            <div class="px-6 pt-4 pb-2">
+                                <a href="{{route('festival.index')}}"> <button type="button" class="inline-block bg-gray-200 rounded-full hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">Entrar</button></a>
+                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</button>
+                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</button>
+                            </div>
+                        </div>
+
+                        <div class="max-w-sm rounded overflow-hidden px-1 py-1 bg-red-200">
+                            <img class="w-full" src="storage/festivalPhotos/festival1.jpg" alt="Imagen de Entradas">
+                            <div class="px-6 py-4">
+                                <h2 class="font-bold text-xl mb-2">Mis Entradas</h2>
+                                <p class="text-gray-700 text-base">
+                                    Encuentra todas tus entradas guardadas aquí.
+                                </p>
+                            </div>
+                            <div class="px-6 pt-4 pb-2">
+                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</button>
+                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</button>
+                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</button>
+                            </div>
+                        </div>
+
+                        <div class="max-w-sm rounded overflow-hidden px-1 py-1 bg-blue-200">
+                            <img class="w-full" src="storage/festivalPhotos/festival2.jpg" alt="Sunset in the mountains">
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-xl mb-2">Otra Vista</div>
                                 <p class="text-gray-700 text-base">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                                 </p>

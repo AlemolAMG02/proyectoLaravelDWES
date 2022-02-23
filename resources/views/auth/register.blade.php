@@ -1,22 +1,29 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            <a href="{{route('inicio')}}">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-auth-validation-errors class="mb-5" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="nombre" :value="__('Nombre')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus />
+            </div>
+
+            <!-- Apellidos -->
+            <div class="mt-4">
+                <x-label for="apell" :value="__('Apellidos')" />
+
+                <x-input id="apell" class="block mt-1 w-full" type="text" name="apell" :value="old('apell')" required autofocus />
             </div>
 
             <!-- Email Address -->
@@ -24,6 +31,20 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <!-- City Address -->
+            <div class="mt-4">
+                <x-label for="adress" :value="__('Direccion')" />
+
+                <x-input id="adress" class="block mt-1 w-full" type="text" name="adress" :value="old('adress')" required />
+            </div>
+
+            <!-- Fecha Nacimiento -->
+            <div class="mt-4">
+                <x-label for="fnac" :value="__('Fecha nacimiento')" />
+
+                <x-input id="fnac" class="block mt-1 w-full" type="date" name="fnac" min='1900-01-01' max='2020-12-31' :value="old('fnac')" required />
             </div>
 
             <!-- Password -->
