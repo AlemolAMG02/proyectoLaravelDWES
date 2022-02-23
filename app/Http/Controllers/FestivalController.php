@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Festival;
 use Illuminate\Http\Request;
 
 class FestivalController extends Controller
@@ -13,7 +14,8 @@ class FestivalController extends Controller
      */
     public function index()
     {
-        //
+        $festivales = Festival::all();
+        return view('festival.index')->with('festivales',$festivales);
     }
 
     /**
