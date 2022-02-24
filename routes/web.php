@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FestivalController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,8 @@ Route::get('/admin', function () {
 
 
 Route::resource('festival', FestivalController::class)->middleware(['auth']);
+Route::resource('user', UserController::class)->middleware(['auth']);
 
-Route::get('/adminFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
+Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
 
 require __DIR__ . '/auth.php';
