@@ -7,9 +7,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                    <p class="bg-gray-100"> esto es la vista principal </p>
 
-                    <div id="boxCartas" class="grid grid-cols-3 content-center pt-3">
+                    <div id="boxCartas" class="grid md:grid-cols-3 justify-center  pt-3">
 
-                        <div class="max-w-sm rounded overflow-hidden px-1 py-1 bg-blue-200">
+                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">
                             <img class="w-full" src="storage/festivalPhotos/festival2.jpg" alt="Imagen de festivales">
                             <div class="px-6 py-4">
                                 <h2 class="font-bold text-xl mb-2">Festivales</h2>
@@ -17,14 +17,12 @@
                                     Muestra la lista de festivales para que eligas tu favorito.
                                 </p>
                             </div>
-                            <div class="px-6 pt-4 pb-2">
-                                <a href="{{route('festival.index')}}"> <button type="button" class="inline-block bg-gray-200 rounded-full hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">Entrar</button></a>
-                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</button>
-                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</button>
+                            <div class="grid px-6 pt-4 pb-2 justify-center">
+                                <a href="{{route('festival.index')}}"> <button type="button" class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">Entrar</button></a>
                             </div>
                         </div>
 
-                        <div class="max-w-sm rounded overflow-hidden px-1 py-1 bg-red-200">
+                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-red-200">
                             <img class="w-full" src="storage/festivalPhotos/festival1.jpg" alt="Imagen de Entradas">
                             <div class="px-6 py-4">
                                 <h2 class="font-bold text-xl mb-2">Mis Entradas</h2>
@@ -32,25 +30,21 @@
                                     Encuentra todas tus entradas guardadas aquí.
                                 </p>
                             </div>
-                            <div class="px-6 pt-4 pb-2">
-                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</button>
-                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</button>
-                                <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</button>
+                            <div class="grid px-6 pt-4 pb-2 justify-center">
+                                <a href="{{route('festival.index')}}"> <button type="button" class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">Entrar</button></a>
                             </div>
                         </div>
 
-                        <div class="max-w-sm rounded overflow-hidden px-1 py-1 bg-blue-200">
+                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-blue-200">
                             <img class="w-full" src="storage/festivalPhotos/festival2.jpg" alt="Sunset in the mountains">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">Otra Vista</div>
                                 <p class="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 </p>
                             </div>
-                            <div class="px-6 pt-4 pb-2">
-                                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                            <div class="grid px-6 pt-4 pb-2 justify-center">
+                                <a href="{{route('festival.index')}}"> <button type="button" class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">Entrar</button></a>
                             </div>
                         </div>
                     </div>

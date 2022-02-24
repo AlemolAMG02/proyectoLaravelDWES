@@ -5,19 +5,23 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('menuInicio') }}">
+                    <a href="{{ route('inicio') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
-                        {{ __('Inicio') }}
-                    </x-nav-link>
                     @auth
-                        <x-nav-link :href="route('menuInicio')" :active="request()->routeIs('menuInicio')">
+                        <x-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
                             {{ __('Menú Inicio') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('festival.index')" :active="request()->routeIs('festival.index')">
+                            {{ __('Festivales') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                            {{ __('Bienvenido') }}
                         </x-nav-link>
                     @endauth
                 </div>
@@ -80,15 +84,17 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('menuInicio')" :active="request()->routeIs('menuInicio')">
-                {{ __('Menu inicio') }}
-            </x-responsive-nav-link>
-        </div>
+
         @auth
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('menuInicio')" :active="request()->routeIs('menuInicio')">
-                    {{ __('Menu Inicio') }}
+                <x-responsive-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
+                    {{ __('Inicio') }}
+                </x-responsive-nav-link>
+            </div>
+        @else
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                    {{ __('Bienvenida') }}
                 </x-responsive-nav-link>
             </div>
         @endauth

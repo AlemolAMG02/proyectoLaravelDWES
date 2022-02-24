@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('inicio');
-
-Route::get('/menuInicio', function () {
     return view('menuInicio');
-})->middleware(['auth'])->name('menuInicio');
+})->middleware('auth')->name('inicio');
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
 
 
-Route::resource('festival', FestivalController::class)->middleware(['auth']);;
+Route::resource('festival', FestivalController::class)->middleware(['auth']);
 
 require __DIR__.'/auth.php';
