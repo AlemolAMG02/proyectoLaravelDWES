@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\FestivalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ Route::get('/admin', function () {
 
 Route::resource('festival', FestivalController::class)->middleware(['auth']);
 Route::resource('user', UserController::class)->middleware(['auth']);
+Route::resource('artist', ArtistController::class)->middleware('auth');
 
 Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
 
