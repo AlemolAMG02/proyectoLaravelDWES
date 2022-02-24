@@ -23,6 +23,7 @@ Route::get('/welcome', function () {
 })->name('welcome');
 
 
+
 Route::resource('festival', FestivalController::class)->middleware(['auth']);
 
 require __DIR__.'/auth.php';
