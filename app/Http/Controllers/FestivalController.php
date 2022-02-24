@@ -15,7 +15,7 @@ class FestivalController extends Controller
     public function index()
     {
         $festivales = Festival::all();
-        return view('festival.index')->with('festivales',$festivales);
+        return view('festival.index')->with('festivales', $festivales);
     }
 
     /**
@@ -25,13 +25,25 @@ class FestivalController extends Controller
      */
     public function create()
     {
-        //
+        //return view('festival.index');
+    }
+
+    /**
+     * Muestra todos los festivales.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listaFest()
+    {
+        $festivales = Festival::all();
+        return view('festival.listaFest')->with('festivales', $festivales);
+        //return 'kk';
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,7 +54,7 @@ class FestivalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,7 +65,7 @@ class FestivalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -64,8 +76,8 @@ class FestivalController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -76,7 +88,7 @@ class FestivalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

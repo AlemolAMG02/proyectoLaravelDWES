@@ -22,8 +22,14 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+// Vista para administrar la página web.
+Route::get('/admin', function () {
+    return view('admin.vistaAdmin');
+})->middleware('auth')->name('admin');
 
 
 Route::resource('festival', FestivalController::class)->middleware(['auth']);
 
-require __DIR__.'/auth.php';
+Route::get('/adminFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
+
+require __DIR__ . '/auth.php';
