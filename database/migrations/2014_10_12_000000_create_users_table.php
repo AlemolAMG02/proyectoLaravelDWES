@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -21,8 +20,8 @@ return new class extends Migration
             $table->integer('rol');
             $table->date('fechaNac');
             $table->string('password');
-            //$table->unsignedBigInteger('idRol');  //El nombre de una fk tiene un nombre en concreto.
-            //$table->foreign('idRol')->references('id')->on('rol');
+            $table->unsignedBigInteger('idRol');
+            $table->foreign('idRol')->references('id')->on('rol');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('imagen');
