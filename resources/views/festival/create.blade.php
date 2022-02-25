@@ -1,9 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Coches') }}
-        </h2>
-    </x-slot>
 
     <body class="font-mono bg-gray-400">
     <!-- Container -->
@@ -14,91 +9,94 @@
                 <!-- Col -->
                 <div
                     class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
-                    style="background-image: url('https://wallpapers.com/images/high/my-wallpaper-initiald-xjsghl4w638164c9.jpg')"
+                    style="background-image: url('https://th.bing.com/th/id/R.304961cab66f4b7fb19cd8e6379621c5?rik=6bGc4HNAzPZjDw&riu=http%3a%2f%2f24.media.tumblr.com%2ftumblr_mej8exgplo1rpgf8io1_500.png&ehk=%2fD%2fvhKakBSHsp74mUC0OudKxQU7HK94%2bK4arxIERv94%3d&risl=&pid=ImgRaw&r=0')"
                 >
                 </div>
                 <!-- Col -->
                 <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-                    <h3 class="pt-4 text-2xl text-center">Añade tu coche</h3>
-                    <form method="POST" action="{{route('car.store')}}" class="px-8 pt-6 pb-8 mb-4 bg-white rounded" enctype="multipart/form-data">
+                    <h3 class="pt-4 text-2xl text-center">Añadir Festival</h3>
+                    <form method="POST" action="{{}}" class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4 md:flex md:justify-between">
                             <div class="mb-4 md:mr-2 md:mb-0">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="matricula">
-                                    Matrícula
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="nombre">
+                                    Nombre Festival
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="matricula"
+                                    id="nombre"
                                     type="text"
-                                    placeholder="Matrícula del coche"
-                                    name="matricula"
+                                    placeholder="Nombre Festival"
+                                    name="nombre"
                                 />
                             </div>
                             <div class="md:ml-2">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="marca">
-                                    Marca
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="estilo">
+                                    Estilo
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="marca"
+                                    id="estilo"
                                     type="text"
-                                    placeholder="Marca coche"
-                                    name="marca"
+                                    placeholder="Estilo musical"
+                                    name="estilo"
                                 />
                             </div>
                         </div>
                         <div class="mb-4 ">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="modelo">
-                                    Modelo
-                                </label>
-                                <input
-                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="modelo"
-                                    type="text"
-                                    placeholder="Matrícula del coche"
-                                    name="modelo"
-                                />
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="descrip">
+                                Descripción
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                id="descrip"
+                                type="text"
+                                placeholder="Descripción"
+                                name="descrip"
+                            />
                         </div>
                         <div class="mb-4 md:flex md:justify-between">
                             <div class="mb-4 md:mr-2 md:mb-0">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="year">
-                                    Año
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="capMax">
+                                    Capacidad Máxima
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="year"
+                                    id="capMax"
                                     type="text"
-                                    placeholder="Año de fabricación"
-                                    name="year"
+                                    placeholder="Capacidad máxima"
+                                    name="capMax"
                                 />
                             </div>
                             <div class="md:ml-2">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="color">
-                                    Color
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="localidad">
+                                    Localidad
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="color"
+                                    id="localidad"
                                     type="text"
-                                    placeholder="Color del coche"
-                                    name="color"
+                                    placeholder="Localidad del Festival"
+                                    name="localidad"
                                 />
                             </div>
                         </div>
                         <div class="mb-4">
-                            <label class="block mb-2 text-sm font-bold text-gray-700" for="fecha_ultima_revision">
-                                Fecha ultima revisión
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="fecha">
+                                Fecha de comienzo del festival
                             </label>
                             <input
                                 class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                id="fecha_ultima_revision"
+                                id="fecha"
                                 type="date"
                                 placeholder="Email"
-                                name="fecha_ultima_revision"
+                                name="fecha"
+                                min="2022-01-01"
+                                max="2022-12-31"
                             />
                         </div>
-                        <div class="mb-4 md:flex md:justify-between">
+                        <div class="mb-4 ">
                             <div class="mb-4 md:mr-2 md:mb-0">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="foto">
                                     Foto
@@ -111,27 +109,15 @@
                                     name="foto"
                                 />
                             </div>
-                            <div class="md:ml-2">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="precio">
-                                    Precio
-                                </label>
-                                <input
-                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="precio"
-                                    type="text"
-                                    placeholder="Color del coche"
-                                    name="precio"
-                                />
-                            </div>
                         </div>
 
                         <div class="mb-6 text-center">
                             <input type="submit"
-                                class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                                value="Añadir coche"
+                                   class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                                   value="Añadir festival"
                             >
                         </div>
-                        <hr class="mb-6 border-t" />
+                        <hr class="mb-6 border-t"/>
                     </form>
                 </div>
             </div>
