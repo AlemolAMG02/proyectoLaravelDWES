@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-blue-200">
-                            <img class="w-full" src="storage/festivalPhotos/festival2.jpg"
+                            <img class="w-full" src="storage/festivalPhotos/festivalPrimeraPersona.jpg"
                                  alt="Sunset in the mountains">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">Otra Vista</div>

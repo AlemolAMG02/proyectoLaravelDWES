@@ -15,7 +15,8 @@
                 <!-- Col -->
                 <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                     <h3 class="pt-4 text-2xl text-center">Añadir Festival</h3>
-                    <form method="POST" action="{{}}" class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+                    <form method="POST" action="{{route('festival.store')}}"
+                          class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4 md:flex md:justify-between">

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class FestivalController extends Controller
 {
+    const RUTA_IMAGEN = 'storage/festivalPhotos/';
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +49,34 @@ class FestivalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$validate = $request->validate([
+            'matricula' => 'required|unique:cars',
+            'marca' => 'required',
+            'modelo' => 'required',
+            'foto' => 'required|image',
+        ]); */
+        try {
+            $newFest = new Festival(); // Creamos un objeto Festival.
+
+            $newFest->nombre = $request->input('nombre');
+            $newFest->estilo = $request->input('estilo');
+            $newFest->descripcion = $request->input('descripcion');
+            $newFest->capMax = $request->input('capMax');
+            $newFest->localidad = $request->input('localidad');
+            $newFest->fecha = $request->input('fecha');
+            //$newFest->user_id = Auth::id();
+            $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
+            $newFest->foto = $nombreFoto;
+
+            $newFest->save();    //Guardamos en la base de datos.
+
+            $request->file('foto')->storeAs('public/festivalPhotos', $nombreFoto);
+            return redirect()->route('admin');
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('admin')->with('error', 1);
+        }
     }
 
     /**
