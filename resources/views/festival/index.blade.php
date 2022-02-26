@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -7,31 +6,19 @@
                     <h1>LISTA DE FESTIVALES</h1>
                     <!--TODO: Cambiar propiedades del H1 para que se vea correctamente -->
                     <!-- component -->
-                    <table class="min-w-full border-collapse block md:table">
-                        <thead class="block md:table-header-group">
-                        <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-                            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Nombre
-                            </th>
-                            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Estilo
-                            </th>
-                            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Fecha
-                            </th>
-                            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Opciones
-                            </th>
 
-                        </tr>
-                        </thead>
-                        <tbody class="block md:table-row-group">
+                    <div id="boxCartas" class="grid md:grid-cols-3 justify-center  pt-3">
                         @foreach($festivales as $fest)
-                            <tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->nombre}}</td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->estilo}}</td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->fecha}}</td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell content-start align-content: space-between;">
+
+                            <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">
+                                <img class="w-full" src="{{$fest->imagen}}" alt="{{$fest->imagen}}">
+                                <div class="px-6 py-4">
+                                    <h2 class="font-bold text-xl mb-2">{{$fest->nombre}}</h2>
+                                    <p class="text-gray-700 text-base">
+                                        {{$fest->descripcion}}
+                                    </p>
+                                </div>
+                                <div class="grid px-6 pt-4 pb-2 justify-center">
                                     <div class="grid grid-cols-3  ">
                                         <a class="" href="{{route('festival.show',$fest->id)}}">
                                             <button
@@ -54,12 +41,10 @@
                                             </button>
                                         </form>
                                     </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </div>
                         @endforeach
-
-                        </tbody>
-                    </table>
+                    </div>
 
                     @if(session('error') == 1)
                         <br>ERROR EN LA DB;
