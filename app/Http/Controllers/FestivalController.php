@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class FestivalController extends Controller
 {
     const RUTA_IMAGEN = 'storage/festivalPhotos/';
+    const IMAGEN_ESTANDAR = 'festival1.jpg';
 
     /**
      * Display a listing of the resource.
@@ -60,22 +61,25 @@ class FestivalController extends Controller
 
             $newFest->nombre = $request->input('nombre');
             $newFest->estilo = $request->input('estilo');
-            $newFest->descripcion = $request->input('descripcion');
+            $newFest->descripcion = $request->input('descrip');
             $newFest->capMax = $request->input('capMax');
             $newFest->localidad = $request->input('localidad');
             $newFest->fecha = $request->input('fecha');
             //$newFest->user_id = Auth::id();
-            $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
-            $newFest->foto = $nombreFoto;
 
+            if (is_uploaded_file($request->file('foto'))) {
+                $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
+                $newFest->imagen = self::RUTA_IMAGEN . $nombreFoto;
+            } else
+                $nombreFoto = self::RUTA_IMAGEN . self::IMAGEN_ESTANDAR;
             $newFest->save();    //Guardamos en la base de datos.
 
             $request->file('foto')->storeAs('public/festivalPhotos', $nombreFoto);
-            return redirect()->route('admin');
+            return redirect()->route('listaFest');
 
         } catch (QueryException $exception) {
             //echo $exception;
-            return redirect()->route('admin')->with('error', 1);
+            return redirect()->route('listaFest')->with('error', 1);
         }
     }
 
@@ -87,7 +91,8 @@ class FestivalController extends Controller
      */
     public function show($id)
     {
-        //
+        $fest = Festival::find($id);
+        return view('festival.show')->with('fest', $fest);
     }
 
     /**
@@ -98,7 +103,8 @@ class FestivalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fest = Festival::find($id);
+        return view('festival.edit')->with('fest', $fest);
     }
 
     /**
@@ -110,7 +116,36 @@ class FestivalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /*$validate = $request->validate([
+            'matricula' => 'required|unique:cars',
+            'marca' => 'required',
+            'modelo' => 'required',
+            'foto' => 'required|image',
+        ]); */
+        try {
+            $newFest = Festival::findOrFail($id);   // Creamos un objeto Festival.
+
+            $newFest->nombre = $request->input('nombre');
+            $newFest->estilo = $request->input('estilo');
+            $newFest->descripcion = $request->input('descrip');
+            $newFest->capMax = $request->input('capMax');
+            $newFest->localidad = $request->input('localidad');
+            $newFest->fecha = $request->input('fecha');
+            //$newFest->user_id = Auth::id();
+
+            if (is_uploaded_file($request->file('foto'))) {
+                $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
+                $newFest->imagen = self::RUTA_IMAGEN . $nombreFoto;
+                $request->file('foto')->storeAs('public/festivalPhotos', $nombreFoto);
+            }
+            $newFest->save();    //Guardamos en la base de datos.
+
+            return redirect()->route('listaFest');
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('listaFest')->with('error', 1);
+        }
     }
 
     /**
@@ -121,6 +156,8 @@ class FestivalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fest = Festival::findOrFail($id);
+        $fest->delete();
+        return redirect()->route('listaFest')->with('error', 0);
     }
 }
