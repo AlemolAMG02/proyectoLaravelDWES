@@ -26,7 +26,7 @@ class RegisteredUserController extends Controller
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'apellidos' => $request->apell,
             'direccion' => $request->adress,
-            'rol'=>1,
+            'rol' => 1,
             'fechaNac' => $request->fnac,
             'password' => Hash::make($request->password),
             'imagen' => '/rutaImagen'
