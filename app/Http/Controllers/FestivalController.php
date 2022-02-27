@@ -51,12 +51,6 @@ class FestivalController extends Controller
      */
     public function store(Request $request)
     {
-        /*$validate = $request->validate([
-            'matricula' => 'required|unique:cars',
-            'marca' => 'required',
-            'modelo' => 'required',
-            'foto' => 'required|image',
-        ]); */
         try {
             $newFest = new Festival(); // Creamos un objeto Festival.
 

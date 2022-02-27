@@ -29,7 +29,7 @@
                         <h2 class="text-center text-3xl">Lista de artistas</h2>
                         <div class="grid grid-cols-5">
                             @foreach($artistas as $art)
-                                <a class="" href="{{route('festival.show',$fest->id)}}">
+                                <a class="" href="{{route('artist.show',$art->id)}}">
                                     <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 text-center  bg-blue-200">
                                         <h2 class="font-bold text-xl mb-2">{{$art->nombre}}</h2>
                                         <img class="w-full" src="{{$art->foto}}" alt="{{$art->foto}}">

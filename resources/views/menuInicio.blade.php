@@ -19,7 +19,7 @@
                             <div class="grid px-6 pt-4 pb-2 justify-center">
                                 <a href="{{route('festival.index')}}">
                                     <button type="button"
-                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
+                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2">
                                         Entrar
                                     </button>
                                 </a>

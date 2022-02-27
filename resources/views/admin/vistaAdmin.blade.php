@@ -25,7 +25,7 @@
                                 <a href="{{route('festival.create')}}">
                                     <button type="button"
                                             class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
-                                        Crear nuevo
+                                        Añadir nuevo festival
                                     </button>
                                 </a>
                             </div>
@@ -91,16 +91,16 @@
                                 </p>
                             </div>
                             <div class="grid px-6 pt-4 pb-2 justify-center">
-                                <a href="{{route('listaFest')}}">
+                                <a href="{{route('artist.index')}}">
                                     <button type="button"
                                             class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
-                                        Lista festivales
+                                        Lista artistas
                                     </button>
                                 </a>
-                                <a href="{{route('user.create')}}">
+                                <a href="{{route('artist.create')}}">
                                     <button type="button"
                                             class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
-                                        Crear nuevo
+                                        Añadir nuevo artista
                                     </button>
                                 </a>
                             </div>

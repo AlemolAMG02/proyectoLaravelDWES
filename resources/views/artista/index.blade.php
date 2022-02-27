@@ -6,43 +6,24 @@
                     <h1>LISTA DE ARTISTAS</h1>
                     <!--TODO: Cambiar propiedades del H1 para que se vea correctamente -->
 
+                    <div id="boxCartas" class="grid md:grid-cols-3 justify-center pt-3">
+                        @foreach($artistas as $artist)
+                            <a href="{{route('artist.show',$artist->id)}}">
+                                <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">
+                                    <img class="w-full" src="{{$artist->foto}}" alt="{{$artist->foto}}">
+                                    <div class="px-6 py-4">
+                                        <h2 class="font-bold text-xl mb-2">{{$artist->nombre}}</h2>
+                                        <p class="text-gray-700 text-base">
+                                            {{$artist->descripcion}}
+                                        </p>
+                                    </div>
+                                    <div class="grid px-6 pt-4 pb-2 justify-center">
 
-                    @foreach($artisList as $artist)
-
-                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">
-                            <img class="w-full" src="{{$artist->imagen}}" alt="{{$artist->imagen}}">
-                            <div class="px-6 py-4">
-                                <h2 class="font-bold text-xl mb-2">{{$artist->nombre}}</h2>
-                                <p class="text-gray-700 text-base">
-                                    Muestra la lista de festivales para que eligas tu favorito.
-                                </p>
-                            </div>
-                            <div class="grid px-6 pt-4 pb-2 justify-center">
-                                <div class="grid grid-cols-3  ">
-                                    <a class="" href="{{route('festival.show',$artist->id)}}">
-                                        <button
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
-                                            Mostrar
-                                        </button>
-                                    </a>
-                                    <a href="{{route('festival.edit',$artist->id)}}">
-                                        <button
-                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
-                                            Editar
-                                        </button>
-                                    </a>
-                                    <form action="{{route('festival.destroy',$artist->id)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
-                                            Borrar
-                                        </button>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    @endforeach
+                            </a>
+                        @endforeach
+                    </div>
 
                     @if(session('error') == 1)
                         <br>ERROR EN LA DB;
