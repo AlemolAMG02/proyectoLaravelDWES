@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Festival;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FestivalController extends Controller
 {
@@ -92,7 +93,8 @@ class FestivalController extends Controller
     public function show($id)
     {
         $fest = Festival::find($id);
-        return view('festival.show')->with('fest', $fest);
+        $artistas = DB::table('artista')->where('idFestival', $id)->get();
+        return view('festival.show')->with('fest', $fest)->with('artistas', $artistas);
     }
 
     /**

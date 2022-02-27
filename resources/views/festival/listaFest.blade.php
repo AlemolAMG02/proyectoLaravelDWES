@@ -7,7 +7,7 @@
                     <h1>LISTA DE FESTIVALES</h1>
                     <!--TODO: Cambiar propiedades del H1 para que se vea correctamente -->
                     <!-- component -->
-                    <table class="min-w-full border-collapse block md:table">
+                    <table class="min-w-full table-auto border-collapse block md:table">
                         <thead class="block md:table-header-group">
                         <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
@@ -30,13 +30,13 @@
                         </thead>
                         <tbody class="block md:table-row-group">
                         @foreach($festivales as $fest)
-                            <tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
+                            <tr class=" border border-grey-500 md:border-none block md:table-row">
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->id}}</td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->nombre}}</td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->estilo}}</td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$fest->fecha}}</td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell content-start align-content: space-between;">
-                                    <div class="grid grid-cols-3  ">
+                                    <div class="grid grid-cols-3 ">
                                         <a class="" href="{{route('festival.show',$fest->id)}}">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
