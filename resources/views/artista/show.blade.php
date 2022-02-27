@@ -12,13 +12,13 @@
 
 
                     <div class="grid grid-rows-1 grid-flow-col gap-4">
-                        <div><img class="rounded" width="60%" src="{{asset($foto)}}"></div>
+                        <div><img class="rounded" width="60%" src="{{$artist->foto}}"></div>
                         <div>
-                            <p class="text-xl">Matricula: {{$mycar->matricula}}</p>
-                            <p class="text-xl">Marca: {{$mycar->marca}}</p>
-                            <p class="text-xl">Modelo: {{$mycar->modelo}}</p>
-                            <p class="text-xl">Color: {{$mycar->color}}</p>
-                            <p class="text-xl"> {{$mycar->matricula}}</p>
+                            <p class="text-xl">Matricula: {{$artist->nombre}}</p>
+                            <p class="text-xl">Descpri: {{$artist->descripcion}}</p>
+                            <p class="text-xl">Estilo: {{$artist->estilo}}</p>
+                            <p class="text-xl">Participa en: {{$fest->nombre}}</p>
+
                         </div>
                     </div>
 
