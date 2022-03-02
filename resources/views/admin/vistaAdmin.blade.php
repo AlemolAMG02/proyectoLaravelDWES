@@ -55,7 +55,6 @@
                             </div>
                         </div>
 
-
                         <!-- Carta de control de entradas -->
                         <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-red-200">
                             <div class="px-6 py-4">

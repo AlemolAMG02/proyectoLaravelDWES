@@ -118,7 +118,10 @@ class ArtistController extends Controller
             $newArtist->estilo = $request->input('estilo');
             $newArtist->descripcion = $request->input('descrip');
             $newArtist->anio = $request->input('anio');
-            $newArtist->idFestival = $request->input('fest');
+            if ($request->input('fest') != 0)
+                $newArtist->idFestival = $request->input('fest');
+            else
+                $newArtist->idFestival = NULL;
 
             if (is_uploaded_file($request->file('foto'))) {
                 $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
@@ -145,7 +148,7 @@ class ArtistController extends Controller
     {
         $fest = Artist::findOrFail($id);
         $fest->delete();
-        return redirect()->route('listaFest')->with('error', 0);
+        return redirect()->route('listaArtist')->with('error', 0);
     }
 
     public function listaArtist()
