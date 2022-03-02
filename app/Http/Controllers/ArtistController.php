@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Artist;
 use App\Models\Festival;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ArtistController extends Controller
 {
@@ -61,7 +60,7 @@ class ArtistController extends Controller
             if (is_uploaded_file($request->file('foto'))) {
                 $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
                 $newArtist->foto = self::RUTA_IMAGEN . $nombreFoto;
-                $request->file('foto')->storeAs('public/artistPhotos', $nombreFoto);
+                $request->file('foto')->storeAs('public/artistsPhotos', $nombreFoto);
             } else
                 $nombreFoto = "";
             $newArtist->save();    //Guardamos en la base de datos.
@@ -83,7 +82,8 @@ class ArtistController extends Controller
     public function show($id)
     {
         $artist = Artist::find($id);
-        $fest = DB::table('festival')->where('id', $artist->idFestival)->get('nombre');
+        // $fest = DB::table('festival')->where('id', $artist->idFestival)->get('nombre');
+        $fest = Festival::find($artist->idFestival);
         return view('artista.show')->with('artist', $artist)->with('fest', $fest);
     }
 
@@ -116,22 +116,20 @@ class ArtistController extends Controller
             $newArtist->estilo = $request->input('estilo');
             $newArtist->descripcion = $request->input('descrip');
             $newArtist->anio = $request->input('anio');
-            $newArtist->localidad = $request->input('fest');
-            $newArtist->fecha = $request->input('fecha');
-            //$newFest->user_id = Auth::id();
+            $newArtist->idFestival = $request->input('fest');
 
             if (is_uploaded_file($request->file('foto'))) {
                 $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
-                $newArtist->imagen = self::RUTA_IMAGEN . $nombreFoto;
-                $request->file('foto')->storeAs('public/festivalPhotos', $nombreFoto);
+                $newArtist->foto = self::RUTA_IMAGEN . $nombreFoto;
+                $request->file('foto')->storeAs('public/artistsPhotos', $nombreFoto);
             }
             $newArtist->save();    //Guardamos en la base de datos.
 
-            return redirect()->route('listaFest');
+            return redirect()->route('listaArtist');
 
         } catch (QueryException $exception) {
             //echo $exception;
-            return redirect()->route('listaFest')->with('error', 1);
+            return redirect()->route('listaArtist')->with('error', 1);
         }
     }
 

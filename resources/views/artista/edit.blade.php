@@ -15,7 +15,8 @@
                 <!-- Col -->
                 <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                     <h3 class="pt-4 text-2xl text-center">Editar Artista / Grupo</h3>
-                    <form method="POST" action="{{route('artist.store')}}"
+
+                    <form method="POST" action="{{route('artist.update',$artist->id)}}"
                           class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
                           enctype="multipart/form-data">
                         @csrf

@@ -10,12 +10,9 @@
                         @foreach($artistas as $artist)
                             <a href="{{route('artist.show',$artist->id)}}">
                                 <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">
-                                    <img class="w-full" src="{{$artist->foto}}" alt="{{$artist->foto}}">
+                                    <img class="w-full" src="{{asset($artist->foto)}}" alt="{{$artist->foto}}">
                                     <div class="px-6 py-4">
                                         <h2 class="font-bold text-xl mb-2">{{$artist->nombre}}</h2>
-                                        <p class="text-gray-700 text-base">
-                                            {{$artist->descripcion}}
-                                        </p>
                                     </div>
                                     <div class="grid px-6 pt-4 pb-2 justify-center">
 

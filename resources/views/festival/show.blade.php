@@ -6,13 +6,11 @@
                 <div class="p-0 bg-white border-b border-gray-200">
 
                     <!-- <div id="container" class=" grid md:grid-cols-2  "> -->
-                    <div id="container" class=" md:flex  ">
-                        <div id="imgArtist" class=" p-0">
-                        <!-- <img class="rounded-xl md:w-auto md:h-96 h-72 mx-auto"
-                                 src="{{$fest->imagen}}"> -->
-                            <img class="rounded-none  md:h-96 h-72 mx-auto "
-                                 src="https://www.mercadeopop.com/wp-content/uploads/2021/07/bbk22.jpg"
-                                 alt="img route: {{$fest->imagen}}">
+                    <div id="container" class="grid grid-flow-col ">
+                        <div id="imgArtist" class="justify-start p-0">
+                            <img class="md:w-auto md:h-96 h-72 mx-auto"
+                                 src="{{asset($fest->imagen)}}" alt="{{$fest->imagen}}">
+
                         </div>
                         <div id="datosFest" class="bg-red-200 p-3">
                             <h1 class="text-4xl text-center font-bold">{{$fest->nombre}}</h1>
@@ -32,7 +30,7 @@
                                 <a class="" href="{{route('artist.show',$art->id)}}">
                                     <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 text-center  bg-blue-200">
                                         <h2 class="font-bold text-xl mb-2">{{$art->nombre}}</h2>
-                                        <img class="w-full" src="{{$art->foto}}" alt="{{$art->foto}}">
+                                        <img class="w-full" src="{{asset($art->foto)}}" alt="{{$art->foto}}">
                                     </div>
                                 </a>
                             @endforeach

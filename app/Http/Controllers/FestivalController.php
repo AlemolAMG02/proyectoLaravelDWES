@@ -112,7 +112,6 @@ class FestivalController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         try {
             $newFest = Festival::findOrFail($id);   // Creamos un objeto Festival.
 

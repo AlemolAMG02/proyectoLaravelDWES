@@ -50,14 +50,14 @@
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">Otra Vista</div>
                                 <p class="text-gray-700 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Ver los artistas
                                 </p>
                             </div>
                             <div class="grid px-6 pt-4 pb-2 justify-center">
-                                <a href="{{route('festival.index')}}">
+                                <a href="{{route('artist.index')}}">
                                     <button type="button"
-                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
-                                        Entrar
+                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2">
+                                        Entrar artistas
                                     </button>
                                 </a>
                             </div>
