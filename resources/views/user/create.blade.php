@@ -14,15 +14,15 @@
                 </div>
                 <!-- Col -->
                 <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-                    <h3 class="pt-4 text-2xl text-center">Añadir Artista / Grupo</h3>
-                    <form method="POST" action="{{route('artist.store')}}"
+                    <h3 class="pt-4 text-2xl text-center">Añadir Usuario</h3>
+                    <form method="POST" action="{{route('user.store')}}"
                           class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4 md:flex md:justify-between">
                             <div class="mb-4 md:mr-2 md:mb-0">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="nombre">
-                                    Nombre Artista / Grupo
+                                    Nombre
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -33,28 +33,28 @@
                                 />
                             </div>
                             <div class="md:ml-2">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="estilo">
-                                    Estilo
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="ape">
+                                    apellidos
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="estilo"
+                                    id="ape"
                                     type="text"
-                                    placeholder="Estilo musical"
-                                    name="estilo"
+                                    placeholder="Apellidos"
+                                    name="ape"
                                 />
                             </div>
                         </div>
                         <div class="mb-4 ">
-                            <label class="block mb-2 text-sm font-bold text-gray-700" for="descrip">
-                                Descripción
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="direccion">
+                                Dirección
                             </label>
                             <input
                                 class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                id="descrip"
+                                id="direccion"
                                 type="text"
-                                placeholder="Descripción"
-                                name="descrip"
+                                placeholder="Dirección"
+                                name="direccion"
                             />
                         </div>
                         <div class="mb-4 md:flex md:justify-between">
@@ -86,8 +86,8 @@
 
                         </div>
                         <div class="mb-4">
-                            <label class="block mb-2 text-sm font-bold text-gray-700" for="fest">
-                                Festival al que asiste
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="rol">
+                                Rol del usuario
                             </label>
                             <select class="form-select form-select-lg mb-3
                                       appearance-none
@@ -105,9 +105,8 @@
                                       m-0
                                       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     name="fest" id="fest">
-                                <option value="0" selected>Sin festival</option>
-                                @foreach($festivales as $fest)
-                                    <option value="{{$fest->id}}">{{$fest->id}} - {{$fest->nombre}} </option>
+                                @foreach($roles as $rol)
+                                    <option value="{{$rol->id}}">{{$rol->id}} - {{$rol->name}} </option>
                                 @endforeach
                             </select>
                         </div>

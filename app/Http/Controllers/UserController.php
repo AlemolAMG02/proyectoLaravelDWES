@@ -25,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+        return view('user.create')->with('roles', $roles);
     }
 
     /**
@@ -58,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit')->with('user', $user);
     }
 
     /**
