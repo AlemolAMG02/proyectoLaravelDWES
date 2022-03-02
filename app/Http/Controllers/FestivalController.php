@@ -112,12 +112,7 @@ class FestivalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*$validate = $request->validate([
-            'matricula' => 'required|unique:cars',
-            'marca' => 'required',
-            'modelo' => 'required',
-            'foto' => 'required|image',
-        ]); */
+
         try {
             $newFest = Festival::findOrFail($id);   // Creamos un objeto Festival.
 

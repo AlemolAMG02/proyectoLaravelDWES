@@ -83,7 +83,7 @@ class ArtistController extends Controller
     public function show($id)
     {
         $artist = Artist::find($id);
-        $fest = DB::table('festival')->where('id', $artist->idFestival)->get();
+        $fest = DB::table('festival')->where('id', $artist->idFestival)->get('nombre');
         return view('artista.show')->with('artist', $artist)->with('fest', $fest);
     }
 
@@ -95,7 +95,9 @@ class ArtistController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artist = Artist::find($id);
+        $festivales = Festival::all();
+        return view('artista.edit')->with('artist', $artist)->with('festivales', $festivales);
     }
 
     /**
@@ -107,7 +109,30 @@ class ArtistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $newArtist = Artist::findOrFail($id);   // Creamos un objeto Festival.
+
+            $newArtist->nombre = $request->input('nombre');
+            $newArtist->estilo = $request->input('estilo');
+            $newArtist->descripcion = $request->input('descrip');
+            $newArtist->anio = $request->input('anio');
+            $newArtist->localidad = $request->input('fest');
+            $newArtist->fecha = $request->input('fecha');
+            //$newFest->user_id = Auth::id();
+
+            if (is_uploaded_file($request->file('foto'))) {
+                $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
+                $newArtist->imagen = self::RUTA_IMAGEN . $nombreFoto;
+                $request->file('foto')->storeAs('public/festivalPhotos', $nombreFoto);
+            }
+            $newArtist->save();    //Guardamos en la base de datos.
+
+            return redirect()->route('listaFest');
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('listaFest')->with('error', 1);
+        }
     }
 
     /**
@@ -118,6 +143,15 @@ class ArtistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fest = Artist::findOrFail($id);
+        $fest->delete();
+        return redirect()->route('listaFest')->with('error', 0);
     }
+
+    public function listaArtist()
+    {
+        $artistas = Artist::all();
+        return view('artista.listaArtist')->with('artistas', $artistas);
+    }
+
 }

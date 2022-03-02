@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -17,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->float('precio');
             $table->text('descripcion');
+            $table->date('fecha');
             $table->unsignedBigInteger('idFestival');  //El nombre de una fk tiene un nombre en concreto.
             $table->foreign('idFestival')->references('id')->on('festival');
             $table->unsignedBigInteger('idUser');  //El nombre de una fk tiene un nombre en concreto.

@@ -1,145 +1,154 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Coches') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-
-                    </div>
-                    <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
-                        <h3 class="pt-4 text-2xl text-center">Añade tu coche</h3>
-                        <form method="POST" action="{{route('car.update',$mycar->id)}}" class="px-8 pt-6 pb-8 mb-4 bg-white rounded" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="mb-4 md:flex md:justify-between">
-                                <div class="mb-4 md:mr-2 md:mb-0">
-                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="matricula">
-                                        Matrícula
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="matricula"
-                                        type="text"
-                                        placeholder="Matrícula del coche"
-                                        name="matricula"
-                                        value="{{$mycar->matricula}}"
-                                    />
-                                </div>
-                                <div class="md:ml-2">
-                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="marca">
-                                        Marca
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="marca"
-                                        type="text"
-                                        placeholder="Marca coche"
-                                        name="marca"
-                                        value="{{$mycar->marca}}"
-                                    />
-                                </div>
-                            </div>
-                            <div class="mb-4 ">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="modelo">
-                                    Modelo
+    <body class="font-mono bg-gray-400">
+    <!-- Container -->
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12 pb-3">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div
+                    class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+                    style="background-image: url('https://www.unexpectedvisit.es/wp-content/uploads/2019/03/04178f97b059059327eb992387febe22.jpg')"
+                >
+                </div>
+                <!-- Col -->
+                <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h3 class="pt-4 text-2xl text-center">Editar Artista / Grupo</h3>
+                    <form method="POST" action="{{route('artist.store')}}"
+                          class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+                          enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="nombre">
+                                    Nombre Artista / Grupo
                                 </label>
                                 <input
-                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="modelo"
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="nombre"
                                     type="text"
-                                    placeholder="Matrícula del coche"
-                                    name="modelo"
-                                    value="{{$mycar->modelo}}"
+                                    placeholder="Nombre artista"
+                                    name="nombre"
+                                    value="{{$artist->nombre}}"
                                 />
                             </div>
-                            <div class="mb-4 md:flex md:justify-between">
-                                <div class="mb-4 md:mr-2 md:mb-0">
-                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="year">
-                                        Año
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="year"
-                                        type="text"
-                                        placeholder="Año de fabricación"
-                                        name="year"
-                                        value="{{$mycar->year}}"
-                                    />
-                                </div>
-                                <div class="md:ml-2">
-                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="color">
-                                        Color
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="color"
-                                        type="text"
-                                        placeholder="Color del coche"
-                                        name="color"
-                                        value="{{$mycar->color}}"
-                                    />
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="fecha_ultima_revision">
-                                    Fecha ultima revisión
+                            <div class="md:ml-2">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="estilo">
+                                    Estilo
                                 </label>
                                 <input
-                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="fecha_ultima_revision"
-                                    type="date"
-                                    placeholder="Email"
-                                    name="fecha_ultima_revision"
-                                    value="{{$mycar->fecha_ultima_revision}}"
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="estilo"
+                                    type="text"
+                                    placeholder="Estilo musical"
+                                    name="estilo"
+                                    value="{{$artist->estilo}}"
                                 />
                             </div>
-                            <div class="mb-4 md:flex md:justify-between">
-                                <div class="mb-4 md:mr-2 md:mb-0">
-                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="foto">
-                                        Foto
-                                    </label>
-                                    <img src="{{asset($foto)}}">
-                                    <input
-                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="foto"
-                                        type="file"
-                                        placeholder="Imagen del coche"
-                                        name="foto"
-                                        value="{{$mycar->foto}}"
-                                    />
-                                </div>
-                                <div class="md:ml-2">
-                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="precio">
-                                        Precio
-                                    </label>
-                                    <input
-                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                        id="precio"
-                                        type="text"
-                                        placeholder="Color del coche"
-                                        name="precio"
-                                        value="{{$mycar->precio}}"
-                                    />
-                                </div>
+                        </div>
+                        <div class="mb-4 ">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="descrip">
+                                Descripción
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                id="descrip"
+                                type="text"
+                                placeholder="Descripción"
+                                name="descrip"
+                                value="{{$artist->descripcion}}"
+                            />
+                        </div>
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="md:ml-2">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="isGroup">
+                                    ¿Es un grupo?
+                                </label>
+                                <input
+                                    class="w-full py-2 text-sm leading-tight text-blue-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="isGroup"
+                                    type="checkbox"
+                                    placeholder="Es grupo"
+                                    name="isGroup"
+                                    @if($artist->esGrupo == 1)
+                                    checked
+                                    @endif
+                                />
+                            </div>
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="anio">
+                                    Año comienzo
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="anio"
+                                    type="number"
+                                    placeholder="Año comienzo"
+                                    name="anio"
+                                    value="{{$artist->anio}}"
+                                />
                             </div>
 
-                            <div class="mb-6 text-center">
-                                <input type="submit"
-                                       class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                                       value="Actualizar coche"
-                                >
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="fest">
+                                Festival al que asiste
+                            </label>
+                            <select class="form-select form-select-lg mb-3
+                                      appearance-none
+                                      block
+                                      w-full
+                                      px-4
+                                      py-2
+                                      font-normal
+                                      text-gray-700
+                                      bg-white bg-clip-padding bg-no-repeat
+                                      border border-solid border-gray-300
+                                      rounded-md
+                                      transition
+                                      ease-in-out
+                                      m-0
+                                      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    name="fest" id="fest">
+                                <option value="0" selected>Sin festival</option>
+                                @foreach($festivales as $fest)
+                                    <option value="{{$fest->id}}"
+                                            @if($artist->idFestival == $fest->id)
+                                            selected
+                                        @endif >
+                                        {{$fest->id}} - {{$fest->nombre}} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-4 ">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="foto">
+                                    Foto
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="foto"
+                                    type="file"
+                                    placeholder="Imagen del Artista / Grupo"
+                                    name="foto"
+                                    value="value="{{$artist->foto}}""
+                                />
                             </div>
-                            <hr class="mb-6 border-t" />
-                        </form>
-                    </div>
+                        </div>
 
+                        <div class="mb-6 text-center">
+                            <input type="submit"
+                                   class="w-full px-4 py-2 font-bold text-white bg-blue-700 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                                   value="Añadir Artista / Grupo"
+                            >
+                        </div>
+                        <hr class="mb-6 border-t"/>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    </body>
 </x-app-layout>

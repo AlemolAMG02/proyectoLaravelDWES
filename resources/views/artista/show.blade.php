@@ -19,12 +19,14 @@
                             <p class="text-xl">Descpri: {{$artist->descripcion}}</p>
                             <p class="text-xl">Estilo: {{$artist->estilo}}</p>
                             <p class="text-xl">Datos img: {{$artist->foto}}</p>
+                            <p class="text-xl">Festival: {{$fest}}</p>  <!-- No funciona $fest->nombre -->
                         </div>
                         <div>
                             <button type="button"
                                     class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
                                 Reservar Entradas
                             </button>
+                            
                         </div>
                     </div>
 
