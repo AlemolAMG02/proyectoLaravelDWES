@@ -5,7 +5,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <div id="boxCartas" class="grid md:grid-cols-4 justify-center  pt-3">
+                    <div id="boxCartas" class="grid md:grid-cols-4 justify-center pt-3">
 
                         <!-- Carta de control de festivales -->
                         <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">

@@ -20,7 +20,7 @@
                                 <a href="{{route('festival.index')}}">
                                     <button type="button"
                                             class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2">
-                                        Entrar
+                                        Ver Festivales
                                     </button>
                                 </a>
                             </div>
@@ -45,10 +45,11 @@
                         </div>
 
                         <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-blue-200">
-                            <img class="w-full" src="storage/festivalPhotos/festivalPrimeraPersona.jpg"
+                            <img class="w-full"
+                                 src="{{asset('storage/festivalPhotos/festivalPrimeraPersona.jpg')}}"
                                  alt="Sunset in the mountains">
                             <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">Otra Vista</div>
+                                <div class="font-bold text-xl mb-2">Artistas</div>
                                 <p class="text-gray-700 text-base">
                                     Ver los artistas
                                 </p>
@@ -57,7 +58,7 @@
                                 <a href="{{route('artist.index')}}">
                                     <button type="button"
                                             class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2">
-                                        Entrar artistas
+                                        Mostar artistas
                                     </button>
                                 </a>
                             </div>

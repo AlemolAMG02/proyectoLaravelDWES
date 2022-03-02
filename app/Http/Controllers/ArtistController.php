@@ -61,8 +61,10 @@ class ArtistController extends Controller
                 $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
                 $newArtist->foto = self::RUTA_IMAGEN . $nombreFoto;
                 $request->file('foto')->storeAs('public/artistsPhotos', $nombreFoto);
-            } else
+            } else {
                 $nombreFoto = "";
+                $newArtist->foto = $nombreFoto;
+            }
             $newArtist->save();    //Guardamos en la base de datos.
 
             return redirect()->route('admin');
