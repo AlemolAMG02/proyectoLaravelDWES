@@ -36,5 +36,6 @@ Route::resource('artist', ArtistController::class)->middleware('auth');
 
 Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
 Route::get('/listaArtist', [ArtistController::class, 'listaArtist'])->middleware('auth')->name('listaArtist');
+Route::get('/listaUsers', [UserController::class, 'listaUsers'])->middleware('auth')->name('listaUsers');
 
 require __DIR__ . '/auth.php';

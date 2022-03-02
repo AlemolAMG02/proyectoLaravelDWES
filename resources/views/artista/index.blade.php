@@ -8,7 +8,7 @@
 
                     <div id="boxCartas" class="grid md:grid-cols-3 justify-center pt-3">
                         @foreach($artistas as $artist)
-                            <a class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200"
+                            <a class="max-w-sm rounded-md overflow-hidden md:mx-2 my-2  bg-blue-200"
                                href="{{route('artist.show',$artist->id)}}">
                                 <img class="w-full" src="{{asset($artist->foto)}}" alt="{{$artist->foto}}">
                                 <div class="px-6 py-4">

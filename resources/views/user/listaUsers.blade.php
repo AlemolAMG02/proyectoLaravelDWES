@@ -7,7 +7,7 @@
                     <h1>LISTA DE ARTISTAS / GRUPOS</h1>
                     <!--TODO: Cambiar propiedades del H1 para que se vea correctamente -->
                     <!-- component -->
-                    <table class="min-w-full table-auto border-collapse block md:table">
+                    <table class="min-w-full table-auto rounded-md border-collapse block md:table">
                         <thead class="block md:table-header-group">
                         <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
@@ -17,10 +17,10 @@
                                 Nombre
                             </th>
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Estilo
+                                Apellidos
                             </th>
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                ¿Es Grupo?
+                                Rol
                             </th>
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
                                 Opciones
@@ -40,11 +40,13 @@
                                     {{$user->apellidos}}
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                    {{$user->rol}}
+                                {{$user->rol}}
+                                <!--    ( \App\Models\Role::where('id',$user->rol)->get('name') )->name -->
+
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell content-start align-content: space-between;">
                                     <div class="grid grid-cols-3 ">
-                                        <a class="" href="{{route('user.show',$user>id)}}">
+                                        <a class="" href="{{route('user.show',$user->id)}}">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
                                                 Mostrar

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -72,6 +73,13 @@ class UserController extends Controller
         //
     }
 
+    public function mostrarRol($idUser)
+    {
+        $rolUser = User::find($idUser);
+        $miRol = Role::findOrFail($rolUser);
+        return $miRol->name;
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -88,7 +96,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function listaFest()
+    public function listaUsers()
     {
         $users = User::all();
         return view('user.listaUsers')->with('usuarios', $users);
