@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->foreign('rol')->references('id')->on('rol');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
