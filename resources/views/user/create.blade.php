@@ -96,7 +96,7 @@
                                       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:shadow-outline"
                                         name="rol" id="rol">
                                     @foreach($roles as $rol)
-                                        <option @if($user) value="{{$rol->id}}">{{$rol->id}} - {{$rol->name}} </option>
+                                        <option value="{{$rol->id}}">{{$rol->id}} - {{$rol->name}} </option>
                                     @endforeach
                                 </select>
                             </div>
