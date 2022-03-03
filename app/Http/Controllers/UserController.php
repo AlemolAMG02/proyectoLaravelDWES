@@ -92,7 +92,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $myUser = User::findOrFail($id);// Creamos un objeto Festival.
+
+            $myUser->nombre = $request->input('nombre');
+            $myUser->apellidos = $request->input('ape');
+            $myUser->email = $request->input('email');
+            $myUser->direccion = $request->input('direccion');
+            if ($request->input('pass') !== null)
+                $myUser->password = Hash::make($request->input('pass'));
+            $myUser->fechaNac = $request->input('fechaNac');
+            $myUser->rol = $request->input('rol');
+
+            $myUser->save();    //Guardamos en la base de datos.
+
+            return redirect()->route('listaUsers');
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('listaUsers')->with('error', 1);
+        }
     }
 
     public function mostrarRol($idUser)

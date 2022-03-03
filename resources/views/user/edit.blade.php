@@ -16,10 +16,11 @@
                 <!-- Col -->
                 <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
                     <h3 class="pt-4 text-2xl text-center">Añadir Usuario</h3>
-                    <form method="POST" action="{{route('user.store')}}"
+                    <form method="POST" action="{{route('user.update',$user->id)}}"
                           class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
                           enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="mb-4 md:flex md:justify-between">
                             <div class="mb-4 md:mr-2 md:mb-0">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="nombre">
@@ -31,7 +32,7 @@
                                     type="text"
                                     placeholder="Nombre"
                                     name="nombre"
-                                    {{}}
+                                    value="{{$user->nombre}}"
                                 />
                             </div>
                             <div class="md:ml-2">
@@ -44,6 +45,7 @@
                                     type="text"
                                     placeholder="Apellidos"
                                     name="ape"
+                                    value="{{$user->apellidos}}"
                                 />
                             </div>
                         </div>
@@ -57,6 +59,7 @@
                                 type="email"
                                 placeholder="Email"
                                 name="email"
+                                value="{{$user->email}}"
                             />
                         </div>
 
@@ -71,6 +74,7 @@
                                     type="date"
                                     placeholder="Fecha Nacimiento"
                                     name="fechaNac"
+                                    value="{{$user->fechaNac}}"
                                 />
                             </div>
                             <div class="mb-4 md:mr-2 md:mb-0">
@@ -97,7 +101,11 @@
                                       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:shadow-outline"
                                         name="rol" id="rol">
                                     @foreach($roles as $rol)
-                                        <option value="{{$rol->id}}">{{$rol->id}} - {{$rol->name}} </option>
+                                        <option
+                                            @if($rol->id == $user->rol)
+                                            selected
+                                            @endif
+                                            value="{{$rol->id}}">{{$rol->id}} - {{$rol->name}} </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -113,6 +121,7 @@
                                 type="text"
                                 placeholder="Dirección"
                                 name="direccion"
+                                value="{{$user->direccion}}"
                             />
                         </div>
 
@@ -127,9 +136,15 @@
                                     type="text"
                                     placeholder="Contraseña para el usuario"
                                     name="pass"
+                                    disabled
                                 />
+                                <button type="button" id="btnPass" name="btnPass"
+                                        class="w-full px-4 py-2 font-bold text-white bg-blue-400 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline">
+                                    Activar Pass
+                                </button>
                             </div>
                         </div>
+
 
                         <div class="mb-6 text-center">
                             <input type="submit"
@@ -144,5 +159,17 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var btnPass = document.getElementById('btnPass');
+        btnPass.addEventListener('click', function () {
+            var campoPass = document.getElementById('pass');
+            if (campoPass.disabled == true) {
+                campoPass.disabled = false;
+            } else
+                campoPass.disabled = true;
+        });
+    </script>
+
     </body>
 </x-app-layout>

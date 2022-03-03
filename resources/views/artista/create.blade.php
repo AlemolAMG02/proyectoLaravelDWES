@@ -105,7 +105,7 @@
                                       m-0
                                       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     name="fest" id="fest">
-                                <option value="0" selected>Sin festival</option>
+                                <option value="0" selected>0 - Sin festival</option>
                                 @foreach($festivales as $fest)
                                     <option value="{{$fest->id}}">{{$fest->id}} - {{$fest->nombre}} </option>
                                 @endforeach
