@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -37,7 +38,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $newUser = new User(); // Creamos un objeto Festival.
+
+            $newUser->nombre = $request->input('nombre');
+            $newUser->apellidos = $request->input('ape');
+            $newUser->email = $request->input('email');
+            $newUser->direccion = $request->input('direccion');
+            $newUser->password = Hash::make($request->input('pass'));
+            $newUser->fechaNac = $request->input('fechaNac');
+            $newUser->rol = $request->input('rol');
+
+            $newUser->save();    //Guardamos en la base de datos.
+
+            return redirect()->route('listaUsers');
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('listaUsers')->with('error', 1);
+        }
     }
 
     /**
@@ -60,7 +79,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('user.edit')->with('user', $user);
+        $roles = Role::all();
+        return view('user.edit')->with('user', $user)->with('roles', $roles);
     }
 
     /**
