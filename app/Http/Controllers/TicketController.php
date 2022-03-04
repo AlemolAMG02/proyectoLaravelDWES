@@ -36,12 +36,36 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $newTicket = new Ticket(); // Creamos un objeto Festival.
+
+            $newTicket->precio = $request->input('precio');
+            $newTicket->apellidos = $request->input('ape');
+            $newTicket->email = $request->input('email');
+            $newTicket->direccion = $request->input('direccion');
+            $newTicket->password = Hash::make($request->input('pass'));
+            $newTicket->fechaNac = $request->input('fechaNac');
+            $newTicket->rol = $request->input('rol');
+
+            $newTicket->save();    //Guardamos en la base de datos.
+
+            return redirect()->route('listaUsers');
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('listaUsers')->with('error', 1);
+        }
     }
 
-    public function storeWithData(Ticket $ticket)
+    public function storeWithData(Ticket $newTicket)
     {
-        //
+        try {
+            $newTicket->save();    //Guardamos en la base de datos.
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('admin')->with('error', 1);
+        }
     }
 
     /**
@@ -56,14 +80,21 @@ class TicketController extends Controller
     }
 
 
-    public function createManyFromFestival($idFest)
+    public function createManyFromFestival($idFest, $precio)
     {
         $fest = Festival::findOrFail($idFest);
         $maxEntradas = $fest->capMax;
-        $ticketList = array();
+        //$ticketList = array();
 
         for ($i = 0; $i < $maxEntradas; $i++) {
             $newTicket = new Ticket();
+            $newTicket->precio = $precio;
+            $newTicket->descripcion = "Entrada para el festival " . $fest->nombre;
+            $newTicket->fecha = $fest->fecha;
+            $newTicket->idFestival = $idFest;
+            //$ticketList[] = $newTicket;
+
+            $this->storeWithData($newTicket);
         }
 
     }

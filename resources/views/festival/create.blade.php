@@ -83,20 +83,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="mb-4">
-                            <label class="block mb-2 text-sm font-bold text-gray-700" for="fecha">
-                                Fecha de comienzo del festival
-                            </label>
-                            <input
-                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                id="fecha"
-                                type="date"
-                                placeholder="Email"
-                                name="fecha"
-                                min="2022-01-01"
-                                max="2022-12-31"
-                            />
-                        </div>
+                       
                         <div class="mb-4 ">
                             <div class="mb-4 md:mr-2 md:mb-0">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="foto">
@@ -109,6 +96,35 @@
                                     placeholder="Imagen del coche"
                                     name="foto"
                                 />
+                            </div>
+                        </div>
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="precio">
+                                    Precio entrada
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="precio"
+                                    type="number"
+                                    placeholder="Precio entrada"
+                                    name="precio"
+                                />
+                            </div>
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="fecha">
+                                    Fecha comienzo festival
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="fecha"
+                                    type="date"
+                                    placeholder="Fecha Comienzo"
+                                    name="fecha"
+                                    min="2022-01-01"
+                                    max="2022-12-31"
+                                />
+
                             </div>
                         </div>
 
