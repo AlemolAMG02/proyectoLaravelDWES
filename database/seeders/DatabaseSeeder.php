@@ -2,16 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Models\Artist;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /** @var array[] Array de usuarios activos */
     private $users = array(
-        array(['name' => 'Alemol', 'email' => 'ale@alemol.com', 'apell' => 'Molero Gomez', 'email_verified_at' => NULL],
+        array(['name' => 'Alemol', 'email' => 'ale@ale.com', 'apell' => 'Molero Gomez', 'email_verified_at' => NULL],
             'password' => '$2y$10$4MdN2gZSSQkqh5YXX/bmg.NFeTnueefyHd5GAs.aBt.4hn5EnlXiq', 'remember_token' => NULL),
-        array(['name' => 'Usuario', 'email' => 'user@user.com', 'email_verified_at' => NULL],
-            'password' => '25f9e794323b453885f5181f1b624d0b', 'remember_token' => NULL),
     );
 
     /**
@@ -21,7 +20,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('rol')->insert([
+            ['name' => 'usuario', 'descripcion' => 'usuario estandar que puede comprar entradas'],
+            ['name' => 'admin', 'descripcion' => 'Administrador del sistema'],
+        ]);
 
+        /**
+         * Creación de artistas de manera aleatoria
+         */
+        Artist::factory(3)->create();
 
     }
 }
