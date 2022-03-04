@@ -14,9 +14,6 @@ return new class extends Migration {
     {
         Schema::create('entrada', function (Blueprint $table) {
             $table->id();
-            $table->float('precio');
-            $table->text('descripcion');
-            $table->date('fecha');
             $table->unsignedBigInteger('idFestival');  //El nombre de una fk tiene un nombre en concreto.
             $table->foreign('idFestival')->references('id')->on('festival');
             $table->unsignedBigInteger('idUser')->nullable();  //El nombre de una fk tiene un nombre en concreto.

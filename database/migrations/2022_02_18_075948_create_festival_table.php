@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('imagen');
             $table->text('descripcion');
             $table->string('localidad');
+            $table->float('precio');
             $table->timestamps();
             $table->softDeletes();
         });

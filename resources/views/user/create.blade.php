@@ -1,14 +1,14 @@
 <x-app-layout>
 
-    <body class="font-mono bg-gray-400">
+    <body class="font-mono bg-red-400">
     <!-- Container -->
-    <div class="container mx-auto">
-        <div class="flex justify-center px-6 my-12 pb-3">
+    <div class="container mx-auto ">
+        <div class="flex justify-center px-5 py-5 my-0 pb-3">
             <!-- Row -->
             <div class="w-full xl:w-3/4 lg:w-11/12 flex">
                 <!-- Col -->
                 <div
-                    class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+                    class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
                     style="background-image: url({{asset('storage/festivalPhotos/festivalPrimeraPersona.jpg')}})"
                 >
                 </div>
@@ -137,7 +137,7 @@
                                    value="Añadir usuario"
                             >
                         </div>
-                        <hr class="mb-6 border-t"/>
+
                     </form>
                 </div>
             </div>
