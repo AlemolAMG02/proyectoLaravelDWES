@@ -20,10 +20,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        /*
         DB::table('rol')->insert([
             ['name' => 'usuario', 'descripcion' => 'usuario estandar que puede comprar entradas'],
             ['name' => 'admin', 'descripcion' => 'Administrador del sistema'],
         ]);
+        */
 
         /**
          * Creación de artistas de manera aleatoria
