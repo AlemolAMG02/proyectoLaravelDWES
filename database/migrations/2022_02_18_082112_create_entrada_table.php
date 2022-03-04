@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->date('fecha');
             $table->unsignedBigInteger('idFestival');  //El nombre de una fk tiene un nombre en concreto.
             $table->foreign('idFestival')->references('id')->on('festival');
-            $table->unsignedBigInteger('idUser');  //El nombre de una fk tiene un nombre en concreto.
+            $table->unsignedBigInteger('idUser')->nullable();  //El nombre de una fk tiene un nombre en concreto.
             $table->foreign('idUser')->references('id')->on('users');
             $table->timestamps();
         });
