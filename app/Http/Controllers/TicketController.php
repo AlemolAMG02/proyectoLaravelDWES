@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Festival;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -15,7 +17,16 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $userId = User::find(Auth::id());
+        $listaTickets = Ticket::where('idUser', $userId->id)->get();
+        $listaFest = array();
+        foreach ($listaTickets as $t) {
+            $listaFest[] = Festival::where('id', $t->idFestival)->get();
+        }
+        //echo 'iduser = ' . $userId->id;
+        //var_dump($listaTickets);
+        //echo 'lista: ' . $listaTickets;
+        return view('entrada.index')->with('tickets', $listaTickets)->with('festivales', $listaFest);
     }
 
     /**
