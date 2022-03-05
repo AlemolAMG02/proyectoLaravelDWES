@@ -1,34 +1,42 @@
 <x-app-layout>
-
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __($fest->nombre) }}
+        </h2>
+    </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-0 bg-white border-b border-gray-200">
 
                     <!-- <div id="container" class=" grid md:grid-cols-2  "> -->
-                    <div id="container" class="grid grid-flow-col ">
-                        <div id="imgArtist" class="justify-start p-0">
-                            <img class="md:w-auto md:h-96 h-72 mx-auto"
+                    <div id="container" class="grid md:grid-flow-col bg-yellow-300 ">
+                        <div id="imgArtist" class="justify-start m-0 p-0">
+                            <img class="w-full h-auto p-0"
                                  src="{{asset($fest->imagen)}}" alt="{{$fest->imagen}}">
-
                         </div>
                         <div id="datosFest" class="bg-red-200 p-3">
                             <h1 class="text-4xl text-center font-bold">{{$fest->nombre}}</h1>
                             <br>
-                            <p class="mx-1 font-bold">Estilo: </p>
-                            <h2 class="mx-2 px-1">{{$fest->estilo}}</h2>
+                            <h2 class="mx-1 font-bold">Estilo: </h2>
+                            <p class="mx-2 px-1">{{$fest->estilo}}</p>
                             <br>
                             <p class="mx-1 font-bold">Descripción: </p>
-                            <p class="mx2 px-1">{{$fest->descripcion}}</p>
+                            <p class="mx-2 px-1 text-justify">{{$fest->descripcion}}</p>
+                            <br>
+                            <h2 class="mx-1 font-bold">Opciones: </h2>
+                            <p class="mx-2 px-1">{{$fest->estilo}}</p>
+                            <br>
 
                         </div>
                     </div>
-                    <div id="artistas">
+                    <div id="artistas" class="pt-3">
                         <h2 class="text-center text-3xl">Lista de artistas</h2>
-                        <div class="grid grid-cols-5">
+                        <div class="grid md:grid-cols-5 grid-cols-2 p-2">
                             @foreach($artistas as $art)
                                 <a class="" href="{{route('artist.show',$art->id)}}">
-                                    <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 text-center  bg-blue-200">
+                                    <div
+                                        class="max-w-sm rounded-md overflow-hidden md:mx-2 my-2 text-center  bg-blue-200">
                                         <h2 class="font-bold text-xl mb-2">{{$art->nombre}}</h2>
                                         <img class="w-full" src="{{asset($art->foto)}}" alt="{{$art->foto}}">
                                     </div>
