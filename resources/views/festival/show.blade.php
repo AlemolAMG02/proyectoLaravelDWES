@@ -24,8 +24,12 @@
                             <p class="mx-1 font-bold">Descripción: </p>
                             <p class="mx-2 px-1 text-justify">{{$fest->descripcion}}</p>
                             <br>
-                            <h2 class="mx-1 font-bold">Opciones: </h2>
-                            <p class="mx-2 px-1">{{$fest->estilo}}</p>
+                            <!-- <h2 class="mx-1 font-bold">Opciones: </h2> -->
+                            <a class="mx-2 inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2"
+                               href="{{route('ticket.create')}}">
+
+                                <button type="button" class="">Comprar entradas</button>
+                            </a>
                             <br>
 
                         </div>

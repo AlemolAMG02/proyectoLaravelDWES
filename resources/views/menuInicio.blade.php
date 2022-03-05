@@ -35,10 +35,10 @@
                                 </p>
                             </div>
                             <div class="grid px-6 pt-4 pb-2 justify-center">
-                                <a href="{{route('festival.index')}}">
+                                <a href="{{route('ticket.index')}}">
                                     <button type="button"
-                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-blue-400 mr-2 mb-2">
-                                        Entrar
+                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2">
+                                        Ver entradas
                                     </button>
                                 </a>
                             </div>
@@ -46,7 +46,7 @@
 
                         <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-blue-200">
                             <img class="w-full"
-                                 src="{{asset('storage/festivalPhotos/festivalPrimeraPersona.jpg')}}"
+                                 src="{{asset('storage/festivalPhotos/festival4.jpg')}}"
                                  alt="Sunset in the mountains">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">Artistas</div>
