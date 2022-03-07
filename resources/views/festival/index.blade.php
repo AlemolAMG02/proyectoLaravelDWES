@@ -9,9 +9,9 @@
                     <div id="boxCartas" class="grid md:grid-cols-3 justify-center pt-3">
 
                         @foreach($festivales as $fest)
-                            <a class="max-w-sm h-auto rounded overflow-hidden md:mx-2 my-2  bg-blue-200"
+                            <a class="max-w-sm h-auto rounded-lg overflow-hidden md:mx-2 my-2  bg-blue-200"
                                href="{{route('festival.show',$fest->id)}}">
-                                <img class="w-full" src="{{$fest->imagen}}" alt="{{$fest->imagen}}">
+                                <img class="w-full" src="{{asset($fest->imagen)}}" alt="{{$fest->imagen}}">
                                 <div class="px-6 py-4">
                                     <h2 class="font-bold text-xl mb-2">{{$fest->nombre}}</h2>
                                     <p class="text-gray-700 text-base">

@@ -21,7 +21,7 @@ class TicketController extends Controller
         $listaTickets = Ticket::where('idUser', $userId->id)->get();
         $listaFest = array();
         foreach ($listaTickets as $t) {
-            $listaFest[] = Festival::where('id', $t->idFestival)->get();
+            $listaFest[$t->idFestival] = Festival::findOrFail($t->idFestival);
         }
         //echo 'iduser = ' . $userId->id;
         //var_dump($listaTickets);
@@ -38,6 +38,7 @@ class TicketController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -83,22 +84,23 @@ class TicketController extends Controller
     }
 
 
-    public function createManyFromFestival($idFest, $precio)
+    public function comprarEntrada($idFest)
     {
         $fest = Festival::findOrFail($idFest);
         $maxEntradas = $fest->capMax;
+        $user = User::find(Auth::id());
         //$ticketList = array();
 
-        for ($i = 0; $i < $maxEntradas; $i++) {
-            $newTicket = new Ticket();
-            $newTicket->precio = $precio;
-            $newTicket->descripcion = "Entrada para el festival " . $fest->nombre;
-            $newTicket->fecha = $fest->fecha;
-            $newTicket->idFestival = $idFest;
-            //$ticketList[] = $newTicket;
+        //for ($i = 0; $i < $maxEntradas; $i++) {
+        $newTicket = new Ticket();
+        $newTicket->idFestival = $idFest;
+        $newTicket->idUser = $user->id;
+        //$ticketList[] = $newTicket;
+        $newTicket->save();    //Guardamos en la base de datos.
+        //$this->storeWithData($newTicket);
+        //}
 
-            $this->storeWithData($newTicket);
-        }
+        return view('tick');
 
     }
 
