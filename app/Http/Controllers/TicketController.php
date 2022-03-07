@@ -100,7 +100,7 @@ class TicketController extends Controller
         //$this->storeWithData($newTicket);
         //}
 
-        return view('tick');
+        return redirect()->route('ticket.index');
 
     }
 

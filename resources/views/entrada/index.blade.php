@@ -8,7 +8,7 @@
                     <div>
                         @foreach($festivales as $fest)
                             <h2 class="font-bold py-1">{{$fest->nombre}}</h2>
-                            <div id="boxCartas" class="grid md:grid-cols-3 justify-center pt-1">
+                            <div id="boxCartas" class="grid md:grid-cols-3 justify-center py-1">
                                 @foreach($tickets as $t)
                                     @if($t->idFestival === $fest->id)
                                         <a class="max-w-sm rounded-md overflow-hidden md:mx-2 my-2  bg-blue-200"
@@ -21,11 +21,11 @@
                                                 <p class="">Precio Entrada: {{$fest->precio}}</p>
                                                 <p class="">btn devolver</p>
                                             </div>
-
                                         </a>
                                     @endif
                                 @endforeach
                             </div>
+                            <hr>
                         @endforeach
                     </div>
                     @if(session('error') == 1)
