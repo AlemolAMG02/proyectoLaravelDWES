@@ -34,20 +34,22 @@
 
                         </div>
                     </div>
-                    <div id="artistas" class="pt-3">
-                        <h2 class="text-center text-3xl">Lista de artistas</h2>
-                        <div class="grid md:grid-cols-5 grid-cols-2 p-2">
-                            @foreach($artistas as $art)
-                                <a class="" href="{{route('artist.show',$art->id)}}">
-                                    <div
-                                        class="max-w-sm rounded-md overflow-hidden md:mx-2 my-2 text-center  bg-blue-200">
-                                        <h2 class="font-bold text-xl mb-2">{{$art->nombre}}</h2>
-                                        <img class="w-full" src="{{asset($art->foto)}}" alt="{{$art->foto}}">
-                                    </div>
-                                </a>
-                            @endforeach
+                    @if(isset($artistas))
+                        <div id="artistas" class="pt-3">
+                            <h2 class="text-center text-3xl">Lista de artistas</h2>
+                            <div class="grid md:grid-cols-5 grid-cols-2 p-2">
+                                @foreach($artistas as $art)
+                                    <a class="" href="{{route('artist.show',$art->id)}}">
+                                        <div
+                                            class="max-w-sm rounded-md overflow-hidden md:mx-2 my-2 text-center  bg-blue-200">
+                                            <h2 class="font-bold text-xl mb-2">{{$art->nombre}}</h2>
+                                            <img class="w-full" src="{{asset($art->foto)}}" alt="{{$art->foto}}">
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

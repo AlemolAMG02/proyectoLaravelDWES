@@ -50,14 +50,6 @@ class TicketController extends Controller
         try {
             $newTicket = new Ticket(); // Creamos un objeto Festival.
 
-            $newTicket->precio = $request->input('precio');
-            $newTicket->apellidos = $request->input('ape');
-            $newTicket->email = $request->input('email');
-            $newTicket->direccion = $request->input('direccion');
-            $newTicket->password = Hash::make($request->input('pass'));
-            $newTicket->fechaNac = $request->input('fechaNac');
-            $newTicket->rol = $request->input('rol');
-
             $newTicket->save();    //Guardamos en la base de datos.
 
             return redirect()->route('listaUsers');
