@@ -6,9 +6,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p class="bg-gray-100"> esto es la vista principal </p>
 
-                    <div id="boxCartas" class="grid md:grid-cols-3 justify-center  pt-3">
+                    <div id="boxCartas" class="grid md:grid-cols-3 justify-center pt-3">
 
-                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2  bg-blue-200">
+                        <div class="max-w-sm rounded-lg overflow-hidden md:mx-2 my-2  bg-blue-200">
                             <img class="w-full" src="storage/festivalPhotos/festival2.jpg" alt="Imagen de festivales">
                             <div class="px-6 py-4">
                                 <h2 class="font-bold text-xl mb-2">Festivales</h2>
@@ -26,7 +26,7 @@
                             </div>
                         </div>
 
-                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-red-200">
+                        <div class="max-w-sm rounded-lg overflow-hidden md:mx-2 my-2 bg-red-200">
                             <img class="w-full" src="storage/festivalPhotos/festival1.jpg" alt="Imagen de Entradas">
                             <div class="px-6 py-4">
                                 <h2 class="font-bold text-xl mb-2">Mis Entradas</h2>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
 
-                        <div class="max-w-sm rounded overflow-hidden md:mx-2 my-2 bg-blue-200">
+                        <div class="max-w-sm rounded-lg overflow-hidden md:mx-2 my-2 bg-blue-200">
                             <img class="w-full"
                                  src="{{asset('storage/festivalPhotos/festival4.jpg')}}"
                                  alt="Sunset in the mountains">
