@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('foto');
             $table->string('estilo');
             $table->text('descripcion');
-            $table->unsignedBigInteger('idFestival');
+            $table->unsignedBigInteger('idFestival')->nullable();;
             $table->foreign('idFestival')->references('id')->on('festival');
             $table->timestamps();
             $table->softDeletes();
