@@ -60,6 +60,7 @@ class FestivalController extends Controller
             $newFest->capMax = $request->input('capMax');
             $newFest->localidad = $request->input('localidad');
             $newFest->fecha = $request->input('fecha');
+            $newFest->precio = $request->input('precio');
             //$newFest->user_id = Auth::id();
 
             if (is_uploaded_file($request->file('foto'))) {
@@ -121,7 +122,7 @@ class FestivalController extends Controller
             $newFest->capMax = $request->input('capMax');
             $newFest->localidad = $request->input('localidad');
             $newFest->fecha = $request->input('fecha');
-            //$newFest->user_id = Auth::id();
+            $newFest->precio = $request->input('precio');
 
             if (is_uploaded_file($request->file('foto'))) {
                 $nombreFoto = time() . "-" . $request->file('foto')->getClientOriginalName();
