@@ -39,6 +39,6 @@ Route::resource('ticket', TicketController::class)->middleware('auth');
 Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
 Route::get('/listaArtist', [ArtistController::class, 'listaArtist'])->middleware('auth')->name('listaArtist');
 Route::get('/listaUsers', [UserController::class, 'listaUsers'])->middleware('auth')->name('listaUsers');
-Route::get('/compraEntrada/{idFest}', [TicketController::class, 'comprarEntrada'])->middleware('auth')->name('compraEntrada');
+Route::post('/compraEntrada/{idFest}', [TicketController::class, 'comprarEntrada'])->middleware('auth')->name('compraEntrada');
 
 require __DIR__ . '/auth.php';

@@ -84,23 +84,20 @@ class TicketController extends Controller
     }
 
 
-    public function comprarEntrada($idFest)
+    public function comprarEntrada(Request $request, $idFest)
     {
         $fest = Festival::findOrFail($idFest);
-        $maxEntradas = $fest->capMax;
         $user = User::find(Auth::id());
-        //$ticketList = array();
 
-        //for ($i = 0; $i < $maxEntradas; $i++) {
-        $newTicket = new Ticket();
-        $newTicket->idFestival = $idFest;
-        $newTicket->idUser = $user->id;
-        //$ticketList[] = $newTicket;
-        $newTicket->save();    //Guardamos en la base de datos.
-        //$this->storeWithData($newTicket);
-        //}
+        for ($i = 1; $i <= $request->numTickets; $i++) {
+            $newTicket = new Ticket();
+            $newTicket->idFestival = $idFest;
+            $newTicket->idUser = $user->id;
+            $newTicket->save();    //Guardamos en la base de datos.
+        }
 
         return redirect()->route('ticket.index');
+        //return view(route('ticket.index'));
 
     }
 
