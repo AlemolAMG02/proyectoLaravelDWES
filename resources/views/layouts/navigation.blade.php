@@ -3,7 +3,7 @@ $rolAdmin = 2;
 ?>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -28,7 +28,7 @@ $rolAdmin = 2;
                         </x-nav-link>
 
                     @else
-                        <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                        <x-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
                             {{ __('Bienvenido') }}
                         </x-nav-link>
                     @endauth
@@ -109,7 +109,7 @@ $rolAdmin = 2;
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                <x-responsive-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
                     {{ __('Bienvenida') }}
                 </x-responsive-nav-link>
             </div>

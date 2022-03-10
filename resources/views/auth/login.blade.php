@@ -2,7 +2,7 @@
     @include('layouts.navigation')
     <x-auth-card>
         <x-slot name="logo">
-            <a href="{{route('welcome')}}">
+            <a href="{{route('inicio')}}">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500"/>
             </a>
         </x-slot>
