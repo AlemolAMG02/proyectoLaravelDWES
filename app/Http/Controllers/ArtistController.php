@@ -41,6 +41,13 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|unique:artista',
+            'estilo' => 'required',
+            'descrip' => 'required',
+            'fest' => 'required',
+            'anio' => 'required',
+        ]);
         try {
             $newArtist = new Artist(); // Creamos un nuevo Artista.
 
@@ -111,6 +118,13 @@ class ArtistController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required|unique:artista',
+            'estilo' => 'required',
+            'descrip' => 'required',
+            'fest' => 'required',
+            'anio' => 'required',
+        ]);
         try {
             $newArtist = Artist::findOrFail($id);   // Creamos un objeto Festival.
 

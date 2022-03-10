@@ -50,7 +50,6 @@ class TicketController extends Controller
     {
         try {
             $newTicket = new Ticket(); // Creamos un objeto Festival.
-
             $newTicket->save();    //Guardamos en la base de datos.
 
             return redirect()->route('listaUsers');
@@ -61,16 +60,6 @@ class TicketController extends Controller
         }
     }
 
-    public function storeWithData(Ticket $newTicket)
-    {
-        try {
-            $newTicket->save();    //Guardamos en la base de datos.
-
-        } catch (QueryException $exception) {
-            //echo $exception;
-            return redirect()->route('admin')->with('error', 1);
-        }
-    }
 
     /**
      * Display the specified resource.
@@ -86,6 +75,7 @@ class TicketController extends Controller
 
     public function comprarEntrada(Request $request, $idFest)
     {
+
         $fest = Festival::findOrFail($idFest);
         $user = User::find(Auth::id());
 

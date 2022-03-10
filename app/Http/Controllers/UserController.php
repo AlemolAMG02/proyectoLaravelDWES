@@ -92,6 +92,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required|unique:users',
+            'ape' => 'required',
+            'email' => 'required',
+            'direccion' => 'required',
+            'pass' => 'required',
+            'rol' => 'required'
+        ]);
         try {
             $myUser = User::findOrFail($id);// Creamos un objeto Festival.
 
