@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('menuInicio');
-})->middleware('auth')->name('inicio');
+})->middleware('auth', 'verified')->name('inicio');
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -28,17 +28,17 @@ Route::get('/welcome', function () {
 // Vista para administrar la página web.
 Route::get('/admin', function () {
     return view('admin.vistaAdmin');
-})->middleware('auth')->name('admin');
+})->middleware('auth', 'verified')->name('admin');
 
 
-Route::resource('festival', FestivalController::class)->middleware(['auth']);
-Route::resource('user', UserController::class)->middleware(['auth']);
-Route::resource('artist', ArtistController::class)->middleware('auth');
-Route::resource('ticket', TicketController::class)->middleware('auth');
+Route::resource('festival', FestivalController::class)->middleware(['auth', 'verified']);
+Route::resource('user', UserController::class)->middleware(['auth', 'verified']);
+Route::resource('artist', ArtistController::class)->middleware('auth', 'verified');
+Route::resource('ticket', TicketController::class)->middleware('auth', 'verified');
 
-Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth')->name('listaFest');
-Route::get('/listaArtist', [ArtistController::class, 'listaArtist'])->middleware('auth')->name('listaArtist');
-Route::get('/listaUsers', [UserController::class, 'listaUsers'])->middleware('auth')->name('listaUsers');
-Route::post('/compraEntrada/{idFest}', [TicketController::class, 'comprarEntrada'])->middleware('auth')->name('compraEntrada');
+Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth', 'verified')->name('listaFest');
+Route::get('/listaArtist', [ArtistController::class, 'listaArtist'])->middleware('auth', 'verified')->name('listaArtist');
+Route::get('/listaUsers', [UserController::class, 'listaUsers'])->middleware('auth', 'verified')->name('listaUsers');
+Route::post('/compraEntrada/{idFest}', [TicketController::class, 'comprarEntrada'])->middleware('auth', 'verified')->name('compraEntrada');
 
 require __DIR__ . '/auth.php';
