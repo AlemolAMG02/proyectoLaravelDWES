@@ -129,7 +129,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        //Session::flash('message', 'Usuario Eliminado');
+        return redirect()->route('listaUsers')->with('error', 0);
     }
 
     /**
@@ -139,7 +142,7 @@ class UserController extends Controller
      */
     public function listaUsers()
     {
-        $users = User::all();
+        $users = User::withTrashed()->get();
         return view('user.listaUsers')->with('usuarios', $users);
     }
 }

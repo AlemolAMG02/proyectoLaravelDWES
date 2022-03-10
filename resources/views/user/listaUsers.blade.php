@@ -54,18 +54,28 @@
                                         </a>
                                         <a href="{{route('user.edit',$user->id)}}">
                                             <button
-                                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
+                                                class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-1 px-2 border border-amber-500 rounded">
                                                 Editar
                                             </button>
                                         </a>
-                                        <form action="{{route('user.destroy',$user->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
-                                                Borrar
-                                            </button>
-                                        </form>
+
+                                        @if(isset($user->deleted_at) == null)
+                                            <form action="{{route('user.destroy',$user->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
+                                                    Borrar
+                                                </button>
+                                            </form>
+                                        @else
+                                            <a href="{{route('user.edit',$user->id)}}">
+                                                <button type="submit"
+                                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
+                                                    Restaurar
+                                                </button>
+                                            </a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
