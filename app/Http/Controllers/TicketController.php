@@ -132,6 +132,8 @@ class TicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $entrada = Ticket::findOrFail($id);
+        $entrada->delete();
+        return redirect()->route('listaTickets')->with('error', 0);
     }
 }

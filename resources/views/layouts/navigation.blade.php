@@ -63,7 +63,7 @@ $rolAdmin = 2;
                                 <x-dropdown-link :href="route('logout')"
                                                  onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Salir ⤵️') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -71,12 +71,12 @@ $rolAdmin = 2;
                 @else
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
 
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
-                            in</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Iniciar
+                            sesión</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}"
-                               class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                               class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrarse</a>
                         @endif
                     </div>
                 @endauth
@@ -131,17 +131,17 @@ $rolAdmin = 2;
                         <x-responsive-nav-link :href="route('logout')"
                                                onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                            {{ __('Salir') }}
                         </x-responsive-nav-link>
                     </form>
                 </div>
             </div>
         @else
             <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                {{ __('login') }}
+                {{ __('Iniciar Sesión') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                {{ __('register') }}
+                {{ __('Registrarse') }}
             </x-responsive-nav-link>
         @endauth
     </div>
