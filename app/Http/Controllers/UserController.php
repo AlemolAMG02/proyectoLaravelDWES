@@ -143,6 +143,13 @@ class UserController extends Controller
         return redirect()->route('listaUsers')->with('error', 0);
     }
 
+    public function activar($id)
+    {
+        $user = User::findOrFail($id);
+        $user->restore();
+        return redirect()->route('listaUsers')->with('error', 0);
+    }
+
     /**
      * Muestra todos los festivales.
      *

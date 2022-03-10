@@ -49,14 +49,23 @@
                                                 Editar
                                             </button>
                                         </a>
-                                        <form action="{{route('festival.destroy',$fest->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
-                                                Borrar
-                                            </button>
-                                        </form>
+                                        @if(isset($user->deleted_at) == null)
+                                            <form action="{{route('festival.destroy',$fest->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                        class="bg-green-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
+                                                    Borrar
+                                                </button>
+                                            </form>
+                                        @else
+                                            <a href="{{route('activarFest',$user->id)}}">
+                                                <button type="submit"
+                                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
+                                                    Restaurar
+                                                </button>
+                                            </a>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

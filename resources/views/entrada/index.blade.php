@@ -17,9 +17,17 @@
                                             <div class="px-6 py-4">
                                                 <h2 class="font-bold text-xl mb-2">{{$fest->nombre}} - {{$t->id}}</h2>
                                             </div>
-                                            <div class="grid px-6 pt-4 pb-2 justify-between">
+                                            <div class="grid px-6 pt-4 pb-2 flex justify-between">
                                                 <p class="">Precio Entrada: {{$fest->precio}}</p>
-                                                <p class="">btn devolver</p>
+                                                <form action="{{route('ticket.destroy',$t->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                            class="inline-block bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 text-sm font-semibold text-xl text-blue-400 mr-2 mb-2">
+                                                        Devolver Entrada
+                                                    </button>
+                                                </form>
+
                                             </div>
                                         </a>
                                     @endif

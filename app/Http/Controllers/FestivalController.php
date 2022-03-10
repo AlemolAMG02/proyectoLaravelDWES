@@ -169,4 +169,15 @@ class FestivalController extends Controller
         $fest->delete();
         return redirect()->route('listaFest')->with('error', 0);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function activar($id)
+    {
+        $fest = Festival::findOrFail($id);
+        $fest->restore();
+        return redirect()->route('listaFest')->with('error', 0);
+    }
 }

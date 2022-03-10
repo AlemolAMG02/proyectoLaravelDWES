@@ -69,7 +69,7 @@
                                                 </button>
                                             </form>
                                         @else
-                                            <a href="{{route('user.edit',$user->id)}}">
+                                            <a href="{{route('activarUser',$user->id)}}">
                                                 <button type="submit"
                                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
                                                     Restaurar
