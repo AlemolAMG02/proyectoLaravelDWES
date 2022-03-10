@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('menuInicio');
-})->middleware('auth', 'verified')->name('inicio');
+})->name('inicio');
 
 Route::get('/welcome', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect('/');
 })->name('welcome');
 
 // Vista para administrar la página web.
