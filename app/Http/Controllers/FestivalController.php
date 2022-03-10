@@ -51,6 +51,15 @@ class FestivalController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombres' => 'required|unique:festival',
+            'estilo' => 'required',
+            'descrip' => 'required',
+            'capMax' => 'required',
+            'precio' => 'required',
+            'localidad' => 'required',
+            'fecha' => 'required|image',
+        ]);
         try {
             $newFest = new Festival(); // Creamos un objeto Festival.
 
@@ -113,6 +122,15 @@ class FestivalController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombres' => 'required|unique:festival',
+            'estilo' => 'required',
+            'descrip' => 'required',
+            'capMax' => 'required',
+            'precio' => 'required',
+            'localidad' => 'required',
+            'fecha' => 'required|image',
+        ]);
         try {
             $newFest = Festival::findOrFail($id);   // Creamos un objeto Festival.
 
