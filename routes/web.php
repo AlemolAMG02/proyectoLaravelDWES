@@ -34,8 +34,8 @@ Route::get('/admin', function () {
 
 Route::resource('festival', FestivalController::class)->middleware(['auth', 'verified']);
 Route::resource('user', UserController::class)->middleware(['auth', 'verified']);
-Route::resource('artist', ArtistController::class)->middleware('auth', 'verified');
-Route::resource('ticket', TicketController::class)->middleware('auth', 'verified');
+Route::resource('artist', ArtistController::class)->middleware(['auth', 'verified']);
+Route::resource('ticket', TicketController::class)->middleware(['auth', 'verified']);
 
 Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth', 'verified')->name('listaFest');
 Route::get('/listaArtist', [ArtistController::class, 'listaArtist'])->middleware('auth', 'verified')->name('listaArtist');

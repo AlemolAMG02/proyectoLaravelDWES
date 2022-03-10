@@ -20,7 +20,7 @@
                             Encuentra todas tus entradas guardadas aquí.
                         </x-menuCard>
 
-                        <x-menuCard btnText="Ver Artistas" link="ticket.index"
+                        <x-menuCard btnText="Ver Artistas" link="artist.index"
                                     imagen="storage/festivalPhotos/festival4.jpg" color="yellow">
                             <x-slot name="titulo">Artistas</x-slot>
                             Descubre los artistas invitados a los diferentes eventos.
