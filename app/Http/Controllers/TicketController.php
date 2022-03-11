@@ -36,7 +36,15 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        $festivales = Festival::all();
+        $users = User::all();
+        return view('entrada.create')->with('festivales', $festivales)->with('users', $users);
+    }
+
+    public function listaTicket()
+    {
+        $entradas = Ticket::withTrashed()->get();
+        return view('entrada.listaEntradas')->with('entradas', $entradas);
     }
 
 
@@ -99,7 +107,10 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ticket = Ticket::findOrFail($id);
+        $festivales = Festival::all();
+        $users = User::all();
+        return view('entrada.create')->with('festivales', $festivales)->with('users', $users)->with('tic', $ticket);
     }
 
     /**
@@ -124,6 +135,7 @@ class TicketController extends Controller
     {
         $entrada = Ticket::findOrFail($id);
         $entrada->delete();
-        return redirect()->route('listaTickets')->with('error', 0);
+        //$entrada->destroy();
+        return redirect()->route('listaEntradas')->with('error', 0);
     }
 }
