@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('idUser')->nullable();  //El nombre de una fk tiene un nombre en concreto.
             $table->foreign('idUser')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
