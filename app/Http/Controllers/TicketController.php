@@ -21,7 +21,7 @@ class TicketController extends Controller
         $listaTickets = Ticket::where('idUser', $userId->id)->get();
         $listaFest = array();
         foreach ($listaTickets as $t) {
-            $listaFest[$t->idFestival] = Festival::findOrFail($t->idFestival);
+            $listaFest[$t->idFestival] = Festival::withTrashed()->findOrFail($t->idFestival);
         }
         //echo 'iduser = ' . $userId->id;
         //var_dump($listaTickets);
