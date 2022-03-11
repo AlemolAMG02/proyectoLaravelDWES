@@ -14,14 +14,12 @@
                                 Id
                             </th>
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Nombre
+                                Festival
                             </th>
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                Estilo
+                                Usuario
                             </th>
-                            <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                                ¿Es Grupo?
-                            </th>
+
                             <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
                                 Opciones
                             </th>
@@ -29,38 +27,31 @@
                         </tr>
                         </thead>
                         <tbody class="block md:table-row-group">
-                        @foreach($artistas as $artist)
+                        @foreach($entradas as $tic)
                             <tr class=" border border-grey-500 md:border-none block md:table-row">
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$artist->id}}
+                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{$tic->id}}
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                    {{$artist->nombre}}
+                                    {{$tic->idFestival}}
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                    {{$artist->estilo}}
-                                </td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                    @if($artist->esGrupo == 1)
-                                        TRUE
-                                    @else
-                                        FALSE
-                                    @endif
+                                    {{$tic->idUser}}
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell content-start align-content: space-between;">
                                     <div class="grid grid-cols-3 ">
-                                        <a class="" href="{{route('artist.show',$artist->id)}}">
+                                        <a class="" href="{{route('ticket.index')}}">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
-                                                Mostrar
+                                                Página Tickets
                                             </button>
                                         </a>
-                                        <a href="{{route('artist.edit',$artist->id)}}">
+                                        <a href="{{route('ticket.edit',$tic->id)}}">
                                             <button
                                                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
                                                 Editar
                                             </button>
                                         </a>
-                                        <form action="{{route('artist.destroy',$artist->id)}}" method="POST">
+                                        <form action="{{route('ticket.destroy',$tic->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
