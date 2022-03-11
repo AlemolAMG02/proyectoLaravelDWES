@@ -167,8 +167,14 @@ class ArtistController extends Controller
 
     public function listaArtist()
     {
-        $artistas = Artist::all();
+        $artistas = Artist::withTrashed()->get();
         return view('artista.listaArtist')->with('artistas', $artistas);
+    }
+
+    public function activar($id)
+    {
+        $fest = Artist::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('listaArtist');
     }
 
 }

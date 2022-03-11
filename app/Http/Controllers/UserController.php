@@ -150,10 +150,10 @@ class UserController extends Controller
      */
     public function activar($id)
     {
-        $user = User::findOrFail($id);
-        $user->restore();
+        $user = User::withTrashed()->where('id', $id)->restore();;
         return redirect()->route('listaUsers')->with('error', 0);
     }
+
 
     /**
      * Muestra todos los usuarios, incluso los eliminados.
@@ -165,4 +165,5 @@ class UserController extends Controller
         $users = User::withTrashed()->get();
         return view('user.listaUsers')->with('usuarios', $users);
     }
+
 }

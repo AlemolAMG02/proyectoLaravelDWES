@@ -149,6 +149,12 @@ class TicketController extends Controller
         $entrada = Ticket::findOrFail($id);
         $entrada->delete();
         //$entrada->destroy();
-        return redirect()->route('listaEntradas')->with('error', 0);
+        return redirect()->route('listaTickets')->with('error', 0);
+    }
+
+    public function activar($id)
+    {
+        $fest = Ticket::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('listaTickets');
     }
 }
