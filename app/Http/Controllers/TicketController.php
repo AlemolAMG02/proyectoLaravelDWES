@@ -58,14 +58,16 @@ class TicketController extends Controller
     {
         try {
             $newTicket = new Ticket(); // Creamos un objeto Festival.
+            $newTicket->idFestival = $request->input('fest');
+            $newTicket->idUser = $request->input('user');
             $newTicket->save();    //Guardamos en la base de datos.
-
-            return redirect()->route('listaUsers');
 
         } catch (QueryException $exception) {
             //echo $exception;
             return redirect()->route('listaUsers')->with('error', 1);
         }
+
+        return redirect()->route('listaUsers');
     }
 
 
@@ -122,7 +124,18 @@ class TicketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $newTicket = Ticket::findOrFail($id); // Creamos un objeto Festival.
+            $newTicket->idFestival = $request->input('fest');
+            $newTicket->idUser = $request->input('user');
+            $newTicket->save();    //Guardamos en la base de datos.
+
+        } catch (QueryException $exception) {
+            //echo $exception;
+            return redirect()->route('listaUsers')->with('error', 1);
+        }
+
+        return redirect()->route('listaUsers');
     }
 
     /**
