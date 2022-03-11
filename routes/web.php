@@ -40,6 +40,7 @@ Route::resource('ticket', TicketController::class)->middleware(['auth', 'verifie
 Route::get('/listaFest', [FestivalController::class, 'listaFest'])->middleware('auth', 'verified')->name('listaFest');
 Route::get('/listaArtist', [ArtistController::class, 'listaArtist'])->middleware('auth', 'verified')->name('listaArtist');
 Route::get('/listaUsers', [UserController::class, 'listaUsers'])->middleware('auth', 'verified')->name('listaUsers');
+Route::get('/listaTickets', [TicketController::class, 'listaTicket'])->middleware('auth', 'verified')->name('listaTickets');
 Route::post('/compraEntrada/{idFest}', [TicketController::class, 'comprarEntrada'])->middleware('auth', 'verified')->name('compraEntrada');
 
 Route::get('/activarFest/{id}', [FestivalController::class, 'activar'])->middleware('auth', 'verified')->name('activarFest');
