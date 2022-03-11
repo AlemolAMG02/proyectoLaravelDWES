@@ -44,7 +44,7 @@ Route::get('/listaUsers', [UserController::class, 'listaUsers'])->middleware('au
 Route::get('/listaTickets', [TicketController::class, 'listaTicket'])->middleware('auth', 'verified')->name('listaTickets');
 Route::post('/compraEntrada/{idFest}', [TicketController::class, 'comprarEntrada'])->middleware('auth', 'verified')->name('compraEntrada');
 
-Route::get('/activarFest/{id}', [FestivalController::class, 'activar'])->middleware('auth', 'verified')->name('activarFest');
+Route::get('/activarFest/{id}', [FestivalController::class, 'activar'])->middleware('auth', 'verified')->name('activaFest');
 Route::get('/activarUser/{id}', [UserController::class, 'activar'])->middleware('auth', 'verified')->name('activarUser');
 
 require __DIR__ . '/auth.php';

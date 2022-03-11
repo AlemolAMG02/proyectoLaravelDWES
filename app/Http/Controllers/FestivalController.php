@@ -171,13 +171,13 @@ class FestivalController extends Controller
     }
 
     /**
+     * La verdad, no funciona
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function activar($id)
     {
-        $fest = Festival::findOrFail($id);
-        $fest->restore();
-        return redirect()->route('listaFest')->with('error', 0);
+        $fest = Festival::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('listaFest');
     }
 }

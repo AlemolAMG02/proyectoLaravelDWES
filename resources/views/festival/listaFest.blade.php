@@ -45,7 +45,7 @@
                                         </a>
                                         <a href="{{route('festival.edit',$fest->id)}}">
                                             <button
-                                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
+                                                class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-1 px-2 border border-amber-400 rounded">
                                                 Editar
                                             </button>
                                         </a>
@@ -59,7 +59,7 @@
                                                 </button>
                                             </form>
                                         @else
-                                            <a href="{{route('activarFest',$fest->id)}}">
+                                            <a href="{{route('activaFest',$fest->id)}}">
                                                 <button type="submit"
                                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
                                                     Restaurar

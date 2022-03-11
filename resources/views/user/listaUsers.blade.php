@@ -54,7 +54,7 @@
                                         </a>
                                         <a href="{{route('user.edit',$user->id)}}">
                                             <button
-                                                class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-1 px-2 border border-amber-500 rounded">
+                                                class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-1 px-2 border border-amber-400 rounded">
                                                 Editar
                                             </button>
                                         </a>

@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <h1>LISTA DE ARTISTAS / GRUPOS</h1>
+                    <h1>LISTA DE ENTRADAS</h1>
                     <!--TODO: Cambiar propiedades del H1 para que se vea correctamente -->
                     <!-- component -->
                     <table class="min-w-full table-auto border-collapse block md:table">
@@ -47,7 +47,7 @@
                                         </a>
                                         <a href="{{route('ticket.edit',$tic->id)}}">
                                             <button
-                                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
+                                                class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-1 px-2 border border-amber-400 rounded">
                                                 Editar
                                             </button>
                                         </a>
@@ -55,7 +55,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
+                                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
                                                 Borrar
                                             </button>
                                         </form>
