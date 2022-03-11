@@ -143,6 +143,11 @@ class UserController extends Controller
         return redirect()->route('listaUsers')->with('error', 0);
     }
 
+    /**
+     * Reactiva el usuario en caso de ser eliminado.
+     * @param $id  usuario
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function activar($id)
     {
         $user = User::findOrFail($id);
@@ -151,9 +156,9 @@ class UserController extends Controller
     }
 
     /**
-     * Muestra todos los festivales.
+     * Muestra todos los usuarios, incluso los eliminados.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response Vista de administración de usuarios.
      */
     public function listaUsers()
     {

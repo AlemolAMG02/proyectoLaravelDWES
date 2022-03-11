@@ -30,6 +30,7 @@ Route::get('/welcome', function () {
 Route::get('/admin', function () {
     return view('admin.vistaAdmin');
 })->middleware('auth', 'verified')->name('admin');
+//})->middleware('auth', 'verified', 'admin')->name('admin');
 
 
 Route::resource('festival', FestivalController::class)->middleware(['auth', 'verified']);
