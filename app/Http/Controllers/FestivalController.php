@@ -39,7 +39,7 @@ class FestivalController extends Controller
      */
     public function listaFest()
     {
-        $festivales = Festival::all();
+        $festivales = Festival::withTrashed()->get();
         return view('festival.listaFest')->with('festivales', $festivales);
     }
 

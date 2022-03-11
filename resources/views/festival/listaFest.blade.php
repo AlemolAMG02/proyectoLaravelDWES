@@ -49,17 +49,17 @@
                                                 Editar
                                             </button>
                                         </a>
-                                        @if(isset($user->deleted_at) == null)
+                                        @if(isset($fest->deleted_at) == null)
                                             <form action="{{route('festival.destroy',$fest->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                        class="bg-green-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
+                                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">
                                                     Borrar
                                                 </button>
                                             </form>
                                         @else
-                                            <a href="{{route('activarFest',$user->id)}}">
+                                            <a href="{{route('activarFest',$fest->id)}}">
                                                 <button type="submit"
                                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">
                                                     Restaurar
